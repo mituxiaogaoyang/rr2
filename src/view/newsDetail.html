@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/news.css">
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="core_news">
+            <div class="news_detail" id="newsDetail">
+                <div class="title">橙风破浪，北斗开启全球时代！</div>
+                <div class="time">2020-05-06</div>
+                <div class="detail"></div>
+            </div>
+            <script type="text/x-jsrender" id="tmplNews">
+                <div class="title">{{:title}}</div>
+                <div class="time">{{:date}}</div>
+                <div class="detail">{{:content}}</div>
+            </script>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script src="../js/jsrender.min.js"></script>
+        <script>
+            var id = location.search.split('=')[1];
+            if(Number(id)){
+                $.ajax({//招聘
+                    url:"/api/news/get?id="+Number(id),
+                    dataType: "json",
+                    type: 'get',
+                    success: function(res){
+                        res.data.date = formatDate(res.data.createTime)
+                        var html = $("#tmplNews").render(res.data);
+                        $("#newsDetail").html(html);
+                    }
+                });
+            }
+            function formatDate(now) { 
+                now = new Date(now);
+                var year=now.getFullYear();  //取得4位数的年份
+                var month=now.getMonth()+1;  //取得日期中的月份，其中0表示1月，11表示12月
+                var date=now.getDate();      //返回日期月份中的天数（1到31）
+                // var hour=now.getHours();     //返回日期中的小时数（0到23）
+                // var minute=now.getMinutes(); //返回日期中的分钟数（0到59）
+                // var second=now.getSeconds(); //返回日期中的秒数（0到59）
+                return year+"-"+month+"-"+date+" "; 
+            }
+            
+        </script>
+    </body>
+</html>

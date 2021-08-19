@@ -1,0 +1,414 @@
+.area_intro{
+    background-color: #fff;
+    width:1200px;
+    margin:80px auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 5px #f0f0f0;
+    background-image: url(../image/intro.png);
+    background-position: right center ;
+    background-repeat: no-repeat;
+}
+.area_intro .intro{
+    width:580px;
+    box-sizing: border-box;
+    padding:40px 60px;
+
+
+}
+.area_intro .intro .intro_title{
+    font-size: 24px;
+    position: relative;
+    padding-bottom: 50px;
+}
+.area_intro .intro .intro_title:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top:45px;
+    width:40px;
+    height:3px;
+    background-color: #ccc;
+    border-radius: 3px;
+}
+.area_intro .intro .btn_view{
+    margin-top:45px;
+    display: inline-block;
+    color:rgba(36,112,184,.8);
+    position: relative;
+}
+.area_intro .intro .btn_view:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom:-2px;
+    left:1px;
+    right: 1px;
+    height:1px;
+    background-color: rgba(36,112,184,.6);;
+    border-radius: 3px;
+}
+.area_intro .img_intro{
+    width:620px;
+
+}
+.area{
+    margin-bottom:80px ;
+}
+.area_title{
+    width: 280px;
+    margin: 0 auto 60px;
+    text-align: center;
+    padding: 12px 0;
+    border: 3px solid #2370b8;
+    color: #2370b8;
+    font-size: 28px;
+    opacity: 0.9;
+}
+.area_product{
+    width:1000px;
+    margin:0 auto 80px;
+}
+.area_product .title_s{
+    height: 1px;
+    margin-top: 30px;
+    position: relative;
+    background-color: #ccc
+}
+.area_product .title_s .word{
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    margin-left: -60px;
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+}
+.area_product .desc{
+    padding: 24px 200px;
+    text-align: center;
+}
+.area_product .desc2{
+    padding: 10px 0 15px 240px;
+    line-height: 2;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #ccc;
+    
+}
+.area_product .desc2 .strong{
+    font-weight: bold;
+    margin-right: 12px;
+}
+.area_product .info_send{
+    margin:12px 0;
+}
+.core10{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+}
+.core_adv{
+    flex-wrap: wrap;
+    text-align: center;
+}
+.core_adv .list{
+    width: 25.1%;
+    margin-bottom: 36px ;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.core_adv .title{
+    color: #212121;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 30px 0 10px;
+}
+.core_adv .icon{
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 28px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.icon_adv1{
+    background-image: url(../image/adv1.png);
+}
+.news_box{
+    width:1000px;
+    margin:30px auto;
+}
+.news_box .img_box{
+    position: relative;
+    float:left;
+    width:600px;
+    min-height: 270px;
+    max-height: 400px;;
+    overflow: hidden;
+}
+.news_box .img_box .list{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    z-index:2;
+    opacity: 0;
+    transition: opacity .3s;
+}
+.news_box .img_box .inside{
+    opacity: 1;
+}
+.news_box .news_list{
+    float:left;
+    width:370px;
+    margin-left:30px;
+}
+.news_box .news_list .list{
+    margin:30px 0;
+    width:350px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 16px;
+}
+.news_box .news_list .list:before{
+    position: absolute;
+    content:'';
+    top:11px;
+    left:4px;
+    width:6px;
+    height:6px;
+    border-radius: 50%;
+    background-color: rgba(36,112,184,.8);
+    transition: all .1s;
+}
+.news_box .news_list .list:hover:before{
+    border-radius: 0;
+    left:0;
+    top:8px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-right: 7px solid rgba(36,112,184,1);
+    border-bottom: 6px solid transparent;
+    background-color: transparent;
+}
+.news_box:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.view_news{
+    display: block;
+    width: 150px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #2370b8;
+    background-color: #2370b8;
+    color: #fff;
+    text-align: center;
+    margin: 45px auto;
+}
+.view_news:hover{
+    color: #fff;
+}
+.area_flow .flow_box{
+    width: 1200px;
+    margin:30px auto;
+    height:320px;
+    line-height: 320px;
+    text-align: center;
+    border:1px solid red;
+    color:red;
+    font-size: 30px;
+}
+.job_box{
+    width:800px;
+    margin:30px auto;
+}
+.job_bg{
+    background: url(../image/job.png) center no-repeat ;
+    background-size: 100% 100%;
+    padding: 30px 0 10px;
+}
+.job_motto{
+    width: 1000px;
+    margin: 30px auto;
+}
+.job_box .job_lists li {
+    background-color: #fbfbfb;
+}
+.job_box .job_lists li .list_head{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 18px;
+    margin: 6px 0;
+    cursor: pointer;
+    position: relative;
+}
+.job_box .job_lists li .list_head i{
+    position:absolute;
+    display: block;
+    top:14px;
+    width:18px;
+    height:18px;
+    right:10px;
+    background: url(../image/icon_arrow_right.png) center no-repeat;
+    background-size: 100%;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+.job_box .job_lists li .list_head.down i{
+    transform: rotate(90deg);
+}
+.job_box .job_lists li .list_head.down .left{
+    color:#2370b8;
+}
+.job_box .job_lists li .list_content{
+    padding: 0 18px;
+    margin: 36px 0;
+    font-size: 0.9em;
+    color:#666;
+    display: none;
+}
+.job_box .job_lists li .list_content .label{
+    font-weight: normal;
+}
+.job_box .job_lists li .list_content .staff_require{
+    padding-bottom:12px;
+}
+.job_box .job_lists li .list_content h3{
+    margin:16px 0;
+    font-size: 1.1em;
+}
+.area ul,.area ul li{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+.job_lists li .list_head .left {
+    float: left;
+    max-width: 330px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.job_lists li .list_head .right {
+    float: right;
+    max-width: 180px;
+    margin-right:45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.job_box .job_lists li .list_head.down .right{
+    float: none;
+    max-width: 800px;
+    margin-right:0;
+    left:18px;
+    position: absolute;
+    top:45px;
+    white-space: normal;
+    line-height: 1.2;
+}
+.job_lists li .list_head:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+@media screen and (max-width: 768px) {
+    .area_intro{
+        width: 100%;
+    }
+    .area_intro .img_intro{
+        display: none;
+    
+    }
+    .area_intro .intro{
+        width:100%;
+        box-sizing: border-box;
+        padding:20px;
+    
+    
+    }
+    .area_intro .intro{
+        width:100%;
+    }
+    .area_title{
+        width:240px;
+    }
+    .area_product{
+        width:100%;
+    }
+    .area_product .desc{
+        padding: 24px;
+    }
+    .core10{
+        width: 100%;
+    }
+    .news_box{
+        width:100%;
+    }
+    .news_box .img_box{
+        float:none;
+        width:100%;
+        max-height: 300px;
+        min-height: 180px;
+        display: none;
+    }
+    .news_box .news_list{
+        float:none;
+        width:100%;
+        margin-left:0;
+        padding:0 15px;
+        box-sizing: border-box;
+    }
+    .news_box .news_list .list{
+        margin:18px 0;
+        width:100%;
+        box-sizing: border-box;
+    }
+    .job_box{
+        width:100%;
+    }
+    .job_lists li .list_head .right {
+        float: none;
+        max-width: 80%;
+        margin-right:0;
+        left:18px;
+        position: absolute;
+        top:45px;
+        display: none;
+    }
+    .job_box .job_lists li .list_head.down .right{
+        display: block;
+    }
+    .job_box .job_lists li .list_content .num{
+        margin-top:40px;
+    }
+    .area_product .desc2{
+        padding: 10px 0 15px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        line-height: 1.5;
+    }
+    .area_product .desc2 li{
+        margin:10px 0;
+    }
+    .area_product .desc2 .explain{
+        display: block;
+        margin-top:6px;
+    }
+    .area_product .info_send {
+        margin: 12px 15px;
+    }
+}

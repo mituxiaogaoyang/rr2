@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/inRuirui.css"></link>
+        
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <!-- <div class="img_banner2"><img src="../image/intro.jpg" alt=""></div> -->
+        
+        <div class="core_contact">
+            <div id="map" class="ditu_box" style="width:100%;height:100vh;font-size:12px"></div>
+            <div class="lists">
+                
+                <div class="list">
+                    <div class="label">地址：</div>
+                    <div class="value" id="address">湖南省长沙市岳麓区溁左路中南大学科技园研发总部1栋549号 </div>
+                </div>
+                <div class="list">
+                    <div class="label">电话：</div>
+                    <div class="value" id="phone">18107334108 / 13307332019</div>
+                </div>
+                <div class="list">
+                    <div class="label">邮编：</div>
+                    <div class="value" id="postalCode">410083</div>
+                </div>
+                <div class="list">
+                    <div class="label">E-mail：</div>
+                    <div class="value" id="email">rrui_info@163.com</div>
+                </div>
+                <div class="list">
+                    <div class="label">QQ：</div>
+                    <a href="" class="value" id="qq"></a>
+                </div>
+                <div class="list">
+                    <div class="label">公众号：</div>
+                    <div class="value">
+                        <div  id="officialAccount"></div>
+                        <div class="erweima"><img src="" alt="" id="erweima"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1G2oj2mKUDXE5GPyby9xkGXHW5nR0YGd"></script>
+        <script>
+            $.ajax({
+                url:"/api/contact/us/get",
+                dataType: "json",
+                type: 'get',
+                success: function(res){
+                    var data = res.data;
+                    $("#qq").attr('href','tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin='+data.qq).text(data.qq);
+
+                    $("#address").text(data.address);
+                    $("#phone").text(data.phone);
+                    $("#postalCode").text(data.postalCode);
+                    $("#email").text(data.email);
+                    $("#officialAccount").text(data.officialAccount);
+                    $("#erweima").attr('src',data.officiaAccountQrCode);
+                }
+            });
+            function initMap(){
+                createMap();//创建地图
+                setMapEvent();//设置地图事件
+                addMapControl();//向地图添加控件
+                addMapOverlay();//向地图添加覆盖物
+            }
+            function createMap(){
+                map = new BMap.Map("map");
+                map.centerAndZoom(new BMap.Point(112.930046,28.177331),16);
+            }
+            function setMapEvent(){
+                map.enableScrollWheelZoom();
+                map.enableKeyboard();
+                map.enableDragging();
+                map.enableDoubleClickZoom();
+                map.enableContinuousZoom();
+                map.enablePinchToZoom()
+            }
+            function addClickHandler(target,window){
+                target.addEventListener("click",function(){
+                    target.openInfoWindow(window);
+                });
+            }
+            var address='岳麓区溁左路中南大学科技园研发总部1栋549号';
+            var company = '锐睿科技有限公司';
+            function addMapOverlay(){
+                var markers = [
+                    {content:address,title:company,imageOffset: {width:-23,height:-21},position:{lat:28.177331,lng:112.930046}}
+                ];
+                for(var index = 0; index < markers.length; index++ ){
+                    var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+                    var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+                        imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+                    })});
+                    var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+                    var opts = {
+                        width: 200,
+                        title: markers[index].title,
+                        enableMessage: false
+                    };
+                    var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+                    marker.setLabel(label);
+                    addClickHandler(marker,infoWindow);
+                    map.addOverlay(marker);
+                };
+            }
+            //向地图添加控件
+            function addMapControl(){
+                var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:3});
+                map.addControl(navControl);
+            }
+            var map;
+            initMap();
+
+        </script>
+    </body>
+</html>

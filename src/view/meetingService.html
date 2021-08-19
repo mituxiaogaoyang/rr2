@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/inRuirui.css"></link>
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="img_banner"><img src="../image/intro.jpg" alt="" id="bannerImg"></div>
+        <div class="core_inRuirui">
+            <div class="left">
+                <div class="title">会议服务</div>
+                <div class="lists" id="tabTitle">
+                    <div class="list active">会议通知</div>
+                    <div class="list">承接会议</div>
+                    <div class="list">优势与特色</div>
+                    <div class="list">联系赞助</div>
+                    <div class="list">接洽方式</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="lists" id="content">
+                    <div class="list active">
+                        <div class="title">会议通知</div>
+                        <div class="content" id="notice"> </div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">承接会议</div>
+                        <div class="content" id="undertake">承接会议</div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">优势与特色</div>
+                        <div class="content" id="adv">优势与特色</div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">联系赞助</div>
+                        <div class="content" id="sponsor"> </div>
+                    </div>
+                    <div class="list">
+                        <div class="title">接洽方式</div>
+                        <div class="content" id="contact">接洽方式</div>
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script src="../js/inRuirui.js"></script>
+        <script>
+            getData('/api/metting/advantage/feature/get',"#adv");
+            getData('/api/metting/contact/method/get',"#contact");
+            getData('/api/metting/contact/sponsor/get',"#sponsor");
+            getData('/api/metting/notice/get',"#notice");
+            getData('/api/metting/undertake/metting/get',"#undertake");
+        </script>
+    </body>
+</html>

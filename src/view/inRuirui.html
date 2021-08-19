@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/inRuirui.css"></link>
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="img_banner"><img src="../image/intro.jpg" alt=""  id="bannerImg"></div>
+        <div class="core_inRuirui">
+            <div class="left">
+                <div class="title">走进锐睿</div>
+                <div class="lists" id="tabTitle">
+                    <div class="list active">公司概况</div>
+                    <div class="list">公司文化</div>
+                    <div class="list">大事记</div>
+                    <div class="list">知识产权</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="lists" id="content">
+                    <div class="list active">
+                        <div class="title">公司概况</div>
+                        <div class="content" id="intro"></div>
+                    </div>
+                    <div class="list">
+                        <div class="title">公司文化</div>
+                        <div class="content" id="culture">（可在富文本中编辑）</div>
+                    </div>
+                    <div class="list">
+                        <div class="title">大事记</div>
+                        <div class="content" id="event">大事记</div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">知识产权</div>
+                        <div class="content" id="ip">知识产权</div>
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script src="../js/inRuirui.js"></script>
+        <script>
+            getData("/api/rrkj/intellectual/property/get","#ip");//知识产权
+            getData("/api/rrkj/big/event/get","#event");//大事记
+            getData("/api/rrkj/company/culture/get","#culture");//文化
+            getData("/api/rrkj/company/overview/get","#intro");//概况
+        </script>
+    </body>
+</html>

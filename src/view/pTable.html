@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/pTable.css"></link>
+
+    </head>
+    <body>
+        <div id="table" class="container"></div>
+        <div id="table-lanthanoids" class="container"></div>
+        <div id="table-actinoids" class="container"></div>
+    </body>
+    <script src="../js/zepto.js"></script>
+    <script>
+        var selectedGroup = '';
+
+// generate element block
+function genEl(e, container) {
+
+    var c = e.group.toLowerCase().split(' ');
+
+    var html = $('<a class="element"></a>').addClass(c[0]);
+
+    if (c[1] && c[1] != 'innerborder') html.addClass(c[1]);
+    if (e.number == 1) html.addClass('nonmetal');
+    if (e.molar) html.attr('href', 'http://en.wikipedia.org/wiki/' + e.name).attr('target', '_blank');
+
+    if (e.molar) {
+        html.attr('id', 'el' + e.number)
+            .attr('title', e.name)
+            .append('<span class="id">' + e.number + '</span>')
+            .append('<span class="symbol">' + e.small + '</span>')
+            .append('<span class="mass">' + parseFloat(e.molar).toFixed(3) + '</span>');
+    } else {
+        html.attr('id', 'el' + e.small)
+            .append('<span class="id">' + e.small + '</span>');
+    }
+
+    container.append(html);
+}
+
+// add clearfix
+function clearfix(container) {
+    container.append('<div class="clearfix"></div>');
+}
+
+// on mouseenter > hide other groups
+$('body').on('mouseenter', '.element', function() {
+
+    var c = $(this).attr('class');
+
+    if (c != selectedGroup) {
+        selectedGroup = c;
+
+        $('body').find('.element').each(function() {
+            if ($(this).attr('class') != c) {
+                $(this).addClass('transp');
+            } else {
+                console.log($(this).attr('class'), c);
+            }
+        });
+    }
+});
+
+// on mouseleave > clear transparency
+$('body').on('mouseleave', '.element', function(e) {
+
+    var c = $(this).attr('class');
+
+    if (c != $(e.toElement).attr('class') || !$(e.toElement).hasClass('element')) {
+
+        selectedGroup = '';
+
+        $('.element')
+            .removeClass('focus')
+            .removeClass('transp');
+    }
+});
+
+// get JSON data
+$.getJSON('https://wow.techbrood.com/uploads/150601/periodicTable.json', function(data) {
+
+    console.log(data);
+
+    // build main table
+    for (var i = 0; i < data.table.length; i++) {
+        for (var j = 0; j < data.table[i].elements.length; j++) {
+            genEl(data.table[i].elements[j], $('#table'));
+        }
+        clearfix($('#table'));
+    }
+
+    // build lanthanoids table
+    for (var i = 0; i < data.lanthanoids.length; i++) {
+        genEl(data.lanthanoids[i], $('#table-lanthanoids'));
+    }
+    clearfix($('#table-lanthanoids'));
+
+    // build actinoids table
+    for (var i = 0; i < data.actinoids.length; i++) {
+        genEl(data.actinoids[i], $('#table-actinoids'));
+    }
+    clearfix($('#table-actinoids'));
+});
+    </script>
+</html>

@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/index.css"></link>
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="img_intro"><img src="../image/intro.jpg" alt="" id="bannerImg"></div>
+        <div class="area area_intro">
+            <div class="img_intro"><img src="../image/rr_about.jpg"></div>
+            <div class="intro">
+                <div class="intro_title">关于锐睿</div>
+                <div class="intro_content" id="oneWord"></div>
+                <a href="./inRuirui.html" class="btn_view">查看更多</a>
+                <a href="./pTable.html" class="btn_view">元素周期</a>
+            </div>
+            
+            
+        </div>
+        <div class="area area_product">
+            <div class="area_title">产品与服务</div>
+            <div class="title_s"><div class="word" >产品</div></div>
+            <div class="desc" id="productWord">产品一句话介绍</div>
+            <div class="title_s"><div class="word">服务</div></div>
+            <div class="desc" id="serviceWord">服务一句话介绍</div>
+        </div>
+        <div class="area area_adv" style="display: none;">
+            <div class="area_title">我们的优势</div>
+            <div class="core10 core_adv" style="position: relative;">
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div class="list">
+                    <i class="icon icon_adv1"></i>
+                    <div class="title">安全.快速.稳定</div>
+                    <div class="desc">全自动接收验证码，网页端、API接入使用方式，一键接收立即响应</div>
+                </div>
+                <div style="position: absolute;top:190px;left:48%;font-size: 56px;color:red;">需提供素材</div>
+            </div>
+        </div>
+        <div class="area area_news">
+            <div class="area_title">新闻事件</div>
+            <div class="news_box">
+                <div class="img_box" id="newsImgs"></div>
+                <script type="text/x-jsrender" id="tmplNews">
+                    {{for items}}
+                    <div class="list"><img src={{:guidePic}} ></div>
+                    {{/for}}
+                </script>
+                <div class="news_list" id="newsLists"> </div>
+                <script type="text/x-jsrender" id="tmplNews2">
+                    {{for items}}
+                    <div class="list"><a href="./newsDetail.html?id={{:id}}" class="title">{{:title}}</a></div>
+                    {{/for}}
+                </script>
+            </div>
+            <a href="./news.html" class="view_news">查看更多</a>
+        </div>
+        <div class="area">
+            <div class="area_title">人才招聘</div>
+            <div class="job_bg">
+                <div class="job_motto area_product">
+
+                
+                <div class="title_s"><div class="word" style="background: rgba(239,243,246,1);">用人理念</div></div>
+                <div class="desc2">
+                    <ul>
+                        <li>
+                            <span class="strong">用人不疑  疑人不用</span>
+                            <span class="explain">信你值得信任，值得公司的托付</span>
+                        </li>
+                        <li>
+                            <span class="strong">厚德载物   上善若水</span>
+                            <span class="explain">信你踏实稳重，处事得当，堪当大任</span>
+                        </li>
+                        <li>
+                            <span class="strong">雷厉风行   开拓进取</span>
+                            <span class="explain">信你能积极推进所托事务，完成甚至超额完成任务</span>
+                        </li>
+                        <li>
+                            <span class="strong">兢兢业业   恪尽职守</span>
+                            <span class="explain">信你能全身心投入，遵守规则，一心为公司服务</span>
+                        </li>
+                        <li>
+                            <span class="strong">自强不息   百折不挠</span>
+                            <span class="explain">信你敢于面对问题，克服困难，遇到挫折不轻言放弃</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info_send">如果感兴趣，请以“姓名+岗位”为邮件名称，发送简历至<a href="mailto:rrui_info@163.com" class="email_after" >rrui_info@163.com</a>邮箱。</div>
+                </div>
+            </div>
+            
+            <div class="job_box">
+                <div class="job_lists">
+                    <ul id="jobLists">
+                        
+                    </ul>
+                    <script type="text/x-jsrender" id="tmplJobs">
+                        {{for items}}
+                        <li>
+                            <div class="list_head">
+                                <div class="left">{{:position}}</div>
+                                <div class="right">{{:salary}}</div>
+                                <i></i>
+                            </div>
+                            <div class="list_content">
+                                <div class="num"><span class="label">招聘人数：</span>{{:num}}</div>
+                                <div class="staff_require">
+                                    <h3>任职资格：</h3>
+                                    <div class="require_box">{{:jobRequire}}</div>
+                                    <h3>岗位职责：</h3>
+                                    <div class="require_box">{{:jobDuty}}</div>
+                                </div>
+                            </div>
+                        </li>	
+                        {{/for}}
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="area area_flow" style="display: none;">
+            <div class="area_title">合作流程</div>
+            <div class="flow_box">待设计,需提供素材</div>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script src="../js/jsrender.min.js"></script>
+        <script src="../js/index.js"></script>
+    </body>
+</html>
