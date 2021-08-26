@@ -1,25 +1,60 @@
-body {
-    margin: 0;
-    padding: 40px 20px 20px;
-    font-family: 'Roboto', sans-serif;
-    background: #222;
+.file_page{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
 }
-.container {
+.pTable{
+    width:850px;
+    border:1px solid #f0f0f0;
+    padding:30px 0;
+}
+.right_part{
+    flex-grow: 1;
+}
+.right_part .word{
+    font-size: 13px;
+}
+.selected_box{
+    border:1px solid #f0f0f0;
+    padding:12px;
+    height:80px;
+}
+.selected_box .word{
+    font-weight: bold;
+}
+.match_box .word .num{
+    font-weight: bold;
+}
+.match_box{
+    border:1px solid #f0f0f0;
+    padding:12px;
+    height:355px;
+    overflow-y: auto;
+}
+.match_box .file_lists{
+    padding:10px 0;
+
+}
+.match_box .file_list span{
+    cursor: pointer;
+    color: rgba(36,112,184,.8);
+}
+.container_pTable {
     margin: 0 auto;
 }
 #table {
-    width: 1260px;
+    width: 810px;
     margin-bottom: 20px;
 }
 #table-lanthanoids,
 #table-actinoids {
-    width: 1050px;
+    width: 675px;
 }
 .element {
     position: relative;
     float: left;
-    width: 70px;
-    height: 70px;
+    width: 45px;
+    height: 45px;
     text-align: center;
     color: white;
     font-size: 11px;
@@ -27,10 +62,11 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
 }
 .element .symbol {
-    line-height: 70px;
-    font-size: 240%;
+    line-height: 60px;
+    font-size: 180%;
     font-weight: 300;
 }
 .element .id,
@@ -39,13 +75,15 @@ body {
     opacity: 0.9;
 }
 .element .id {
-    top: 2px;
+    top: 1px;
     left: 2px;
 }
 .element .mass {
-    bottom: 2px;
+    bottom: 0.3px;
     left: 0;
     right: 0;
+    line-height: 1.2;
+    display: none;
 }
 .element.noble {
     background: -webkit-linear-gradient(top left, #7e57c2, #673ab7);
@@ -117,12 +155,17 @@ body {
     background: -o-linear-gradient(top left, #ab47bc, #9c27b0);
     background: linear-gradient(top left, #ab47bc, #9c27b0);
 }
+.element.selected{
+    background: #fff;
+    box-shadow: inset 1px 1px 0 #2370b8, inset -1px -1px 0 #2370b8;
+    color:#2370b8;
+}
 #el2 {
-    margin-left: 1120px;
+    margin-left: 720px;
 }
 #el5,
 #el13 {
-    margin-left: 700px;
+    margin-left:450px;
 }
 .clearfix {
     clear: both;
