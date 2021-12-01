@@ -1,7 +1,7 @@
 //gulp-concat gulp-autoprefixer  gulp-imagemin  gulp-html-replace（gulp-rev-collector） gulp-rev(静态资源防缓存)
 const Gulp = require('gulp');
 const Minifycss = require('gulp-minify-css');
-const Uglify = require('gulp-uglify');
+//const Uglify = require('gulp-uglify');
 const FileInclude = require('gulp-file-include');
 const WebServer = require('gulp-webserver');
 const Clean = require('gulp-clean');
@@ -22,7 +22,9 @@ function copyHtml(){
         }).pipe(minifyHTML()).pipe(Gulp.dest(Dist));
 }
 function copyJs(){
-  return Gulp.src('src/js/**').pipe(Uglify()).pipe(Gulp.dest(Dist + '/js'));
+  return Gulp.src('src/js/**')
+  //.pipe(Uglify())
+  .pipe(Gulp.dest(Dist + '/js'));
 }
 function copyCss(){
   return Gulp.src('src/css/*.css').pipe(Minifycss()).pipe(rev()).pipe(Gulp.dest(Dist + '/css')).pipe(rev.manifest()).pipe(Gulp.dest('rev/css'))

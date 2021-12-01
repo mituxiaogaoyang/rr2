@@ -8,6 +8,7 @@
 
     </head>
     <body>
+        ##include("../others/header.html")
         <div class="file_page">
             <div class="pTable">
                 <div id="table" class="container_pTable"></div>
@@ -20,17 +21,22 @@
                     <div class="element_selected" id="selected"></div>
                 </div>
                 <div class="match_box">
-                    <div class="word">匹配到<span class="num">45</span>个相关文件：</div>
-                    <div class="file_lists">
-                        <div class="file_list"> <span>f-te</span> </div>
-                        <div class="file_list"> <span>f-te</span> </div>
+                    <div class="word">匹配到<span class="num" id="fileNum">45</span>个相关文件：</div>
+                    <div class="file_lists" id="fileList">
+                        
                     </div>
+                    <script type="text/x-jsrender" id="tmplFiles">
+                        {{for data}}
+                            <div class="file_list" onclick="download({{:fileResourceId}})"> <span>{{:fileResourceName}}</span> </div>
+                        {{/for}}
+                    </script>
                 </div>
             </div>
         </div>
-        
+        ##include("../others/footer.html")
         
     </body>
     <script src="../js/zepto.js"></script>
+    <script src="../js/jsrender.min.js"></script>
     <script  src="../js/pTable.js"> </script>
 </html>

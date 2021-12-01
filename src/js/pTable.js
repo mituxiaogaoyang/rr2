@@ -65,9 +65,9 @@ function clearfix(container) {
 // });
 
 // get JSON data
-$.getJSON('https://wow.techbrood.com/uploads/150601/periodicTable.json', function(data) {
-
-    console.log(data);
+$.getJSON('js/periodicTable.json', function(data) {
+    //https://wow.techbrood.com/uploads/150601/periodicTable.json
+    console.log($('#table'));
 
     // build main table
     for (var i = 0; i < data.table.length; i++) {
@@ -99,7 +99,7 @@ $('body').on('click', '.element', function(e) {
             if(selectedElements[i] === element){
                 selectedElements.splice(i,1);
                 _this.removeClass('selected');
-                words = selectedElements.join('-');
+                words = selectedElements.join(',');
                 wordsBox.text(words);
             }
         }
@@ -108,11 +108,24 @@ $('body').on('click', '.element', function(e) {
         
         _this.addClass('selected');
         selectedElements.push(element);
-        words = selectedElements.join('-');
+        words = selectedElements.join(',');
         wordsBox.text(words);
+    }
+    if(words){
+        $.ajax({ 
+            url:"/api/element/query/get?elementCodes="+words,
+            dataType: "json",
+            type: 'get',
+            success: function(res){
+                
+                $("#fileNum").text(res.data.length);
+                var html = $("#tmplFiles").render(res);
+                $("#fileList").html(html);
+            }
+        });
     }
     
 });
-Object.defineProperty(objRender, 'selectedElements',{
-
-})
+function download(id){
+    alert('准备下载'+id)
+}
