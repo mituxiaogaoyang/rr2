@@ -42,6 +42,91 @@
 .container_pTable {
     margin: 0 auto;
 }
+.window-mask{
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    opacity: .3;
+    z-index: 100;
+    /* nav zindex-99 */
+}
+.dialog-title {
+    text-align: left;
+    font-size: 20px;
+    line-height: 100%;
+    color: #333;
+    margin: 0 24px 24px 0;
+    font-weight: 200;
+}
+.dialog-box{
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    border: 0;
+    padding: 24px;
+    display: inline-block;
+    color: #7f7f7f;
+    -moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+    -o-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    -ms-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    width: 500px;
+}
+.pay-form-label {
+    font-size: 13px;
+    color: #000;
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+.price_box{
+    font-size: 20px;
+    font-weight: bold;
+}
+.price-paytype {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 4px 0 2px;
+    vertical-align: top;
+    width: 138px;
+    height:80px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background-image: url(../image/pay_s.png);
+    background-repeat: no-repeat;
+    
+}
+.wechat{
+    background-position: 30px -423px;
+    background-size:60%;
+    
+}
+.alipay {
+    background-position: 33px -304px;
+}
+.price-paytype.ac {
+    border: 1px solid #4386f5;
+}
+.price-paytype.ac:before {
+    position: absolute;
+    content: "";
+    border: 30px solid transparent;
+    border-right: 30px solid #4386f5;
+    right: 0;
+    top: -31px;
+}
+/* 外部css */
 #table {
     width: 810px;
     margin-bottom: 20px;
