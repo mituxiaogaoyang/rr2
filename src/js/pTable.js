@@ -126,6 +126,13 @@ $('body').on('click', '.element', function(e) {
     }
     
 });
+const domMask = $('#window-mask');
+const domPop = $('#upgrade-dlg');
 function download(id){
-    alert('准备下载'+id)
+    domMask.fadeIn();
+    domPop.fadeIn();
 }
+$('#xPop').click(() =>{
+    domMask.fadeOut();
+    domPop.fadeOut();
+})
