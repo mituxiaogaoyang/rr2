@@ -136,3 +136,52 @@ $('#xPop').click(() =>{
     domMask.fadeOut();
     domPop.fadeOut();
 })
+$('.price-paytype').click(function(){
+    $('.price-paytype').removeClass('ac');
+    $(this).addClass('ac');
+})
+//去支付
+const aliPaySite = "http://112.126.61.9:8077/tpay/index"; //http://112.126.61.9:8077/tpay/pay
+$('#payBtn').click(function(){
+    const domCurrent = $('.dlg-item').find('.ac');
+    if (domCurrent.hasClass('wechat')){
+        $.ajax({
+            url: "/api/element/query/get?elementCodes=",
+            dataType: "json",
+            type: 'get',
+            success: function (res) {
+                $("#qrBox").fadeIn();
+                new QRCode($('#payimg')[0], {
+                    text: 'https: //www.baidu.com/',
+                    width: 170,
+                    height: 170,
+                })
+                setInterval(() => {
+                    queryOrderPay();
+                }, 1000);
+            }
+        });
+    } else if (domCurrent.hasClass('alipay')){
+        window.location.href = aliPaySite;
+    }else{
+        $('#forPubPop').fadeIn();
+    }
+
+})
+$('.dialog-close').click(function () {
+    $(this).parent().fadeOut();
+})
+function queryOrderPay(){
+    $.ajax({
+        url: "/api/element/query/get?elementCodes=",
+        dataType: "json",
+        type: 'post',
+        success: function (res) {
+            if(res.isPay){
+                console.log('已支付')
+            }
+        }
+    });
+}
+
+

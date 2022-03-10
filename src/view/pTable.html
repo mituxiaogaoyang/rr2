@@ -23,7 +23,10 @@
                 <div class="match_box">
                     <div class="word">匹配到<span class="num" id="fileNum">45</span>个相关文件：</div>
                     <div class="file_lists" id="fileList">
-                        <div class="file_list" onclick="download(2)"><span>文件1.pdf</span> </div>
+                        <div class="file_list" >
+                            <span onclick="download(2)">文件1.pdf</span> 
+                            <a class="preview_btn" href="a" target="_blank">预览</a> 
+                        </div>
                         <div class="file_list"><span>文件2.pdf</span> </div>
                     </div>
                     <script type="text/x-jsrender" id="tmplFiles">
@@ -40,7 +43,7 @@
                     <div class="pay-form-label">文件价格</div>
                     <div class="price_box">￥33</div>
                     <div class="pay-form-label">支付方式</div>
-                    <div class="dlg-item" style="min-height:30px;">
+                    <div class="dlg-item"  style="min-height:30px;">
                         <div tit="wxpay" class="price-paytype wechat ac">
                             <div class="img-box">
                                 <img src="../image/weixzif.svg" alt="" />
@@ -67,6 +70,14 @@
                     <button class="pay_btn" id="payBtn">去支付</button>
                 </div>
                 <div class="dialog-close" id="xPop"></div>
+            </div>
+            <div class="wx_qr_box dialog-box" id="qrBox">
+                <div class="dialog-close" id="closeQr"></div>
+                <div class="qr_content">
+                    <div>微信扫码支付</div>
+                    <div id="payimg" style="margin:10px 0px;width:170px;height:170px;margin:15px auto;"></div>
+                    <div>长按识别或微信扫描二维码完成支付</div>
+                </div>
             </div>
             <div class="dialog pay-forpub-cell dialog-box" id="forPubPop">
                 <h2 class="dialog-title">对公转账流程</h2>
@@ -108,7 +119,7 @@
                 <div class="dialog-footer">
                     <div class="ui button primary footer-btn order-cancel-btn cl">取消订单</div>
                 </div>
-                <div class="dialog-close" style="display: block;"></div>
+                <div class="dialog-close" id="closePub" style="display: block;"></div>
             </div>
         </div>
         ##include("../others/footer.html")
@@ -117,4 +128,5 @@
     <script src="../js/zepto.js"></script>
     <script src="../js/jsrender.min.js"></script>
     <script  src="../js/pTable.js"> </script>
+    <script src="../js/qrcode.min.js"> </script>
 </html>

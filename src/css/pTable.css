@@ -40,14 +40,22 @@
 
 }
 .match_box .file_list{
-    margin:3px 0;
+    margin:6px 0;
 }
 .match_box .file_list span{
     cursor: pointer;
     color: rgba(36,112,184,.8);
 }
+.match_box .file_list .preview_btn{
+    font-size: 12px;
+    margin-left:15px;
+}
 .container_pTable {
     margin: 0 auto;
+}
+.wx_qr_box .qr_content {
+    text-align:center;
+    margin-top:2px;
 }
 .window-mask{
     background: #000;
