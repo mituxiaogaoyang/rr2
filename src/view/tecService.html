@@ -11,19 +11,16 @@
         <div class="img_banner"><img src="../image/intro.jpg" alt="" id="bannerImg"></div>
         <div class="core_inRuirui">
             <div class="left">
-                <div class="title">会议服务</div>
+                <div class="title">科技服务</div>
                 <div class="lists" id="tabTitle">
-                    <div class="list active">会议通知</div>
-                    <div class="list">承接会议</div>
-                    <div class="list">优势与特色</div>
+                    <div class="list active">科技服务</div>
                 </div>
             </div>
             <div class="right">
                 <div class="lists" id="content">
                     <div class="list active">
-                        <div class="title">会议通知</div>
+                        <div class="title">科技服务</div>
                         <div class="meeting_lists">
-                            <div class="item"><span class="new">联系赞助-接洽方式</span></div>
                             <div class="item"><span class="new">夯实大国粮仓根基</span></div>
                             <div class="item"><span class="new">防疫保供稳物价 各地聚力“惠民生”</span></div>
                             <div class="item"><span>俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</span></div>
@@ -35,25 +32,6 @@
                         </div>
                         
                     </div>
-                    <div class="list">
-                        <div class="title">承接会议</div>
-                        <div class="content" id="undertake">承接会议</div>
-                        
-                    </div>
-                    <div class="list">
-                        <div class="title">优势与特色</div>
-                        <div class="content" id="adv">优势与特色</div>
-                        
-                    </div>
-                    <div class="list">
-                        <div class="title">联系赞助</div>
-                        <div class="content" id="sponsor"> </div>
-                    </div>
-                    <div class="list">
-                        <div class="title">接洽方式</div>
-                        <div class="content" id="contact">接洽方式</div>
-                       
-                    </div>
                 </div>
                 
             </div>
@@ -63,11 +41,11 @@
         <script src="../js/public.js"></script>
         <script src="../js/inRuirui.js"></script>
         <script>
-            getData('/api/metting/advantage/feature/get',"#adv");
-            getData('/api/metting/contact/method/get',"#contact");
-            getData('/api/metting/contact/sponsor/get',"#sponsor");
-            getData('/api/metting/notice/get',"#notice");
-            getData('/api/metting/undertake/metting/get',"#undertake");
+            getData('/api/training/advantage/feature/get',"#adv");
+            getData('/api/training/contact/method/get',"#contact");
+            getData('/api/training/contact/sponsor/get',"#sponsor");
+            getData('/api/training/notice/get',"#notice");
+            getData('/api/training/service/content/get',"#contentService");
         </script>
     </body>
 </html>
