@@ -5,10 +5,58 @@
         <link rel="shortcut icon" href="./image/favicon.ico">
         <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
         <link rel="stylesheet" type="text/css" href="../css/index.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/swiper-3.4.2.min.css"></link>
     </head>
     <body>
         ##include("../others/header.html")
-        <div class="img_intro"><img src="../image/intro.jpg" alt="" id="bannerImg"></div>
+        <div class="swiper-container" id="swiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background: #4390EE">
+                    <img src="../image/banner20210422_fanyi.png" alt="">
+                </div>
+                <div class="swiper-slide" style="background: #CA4040">Slide 2</div>
+                <div class="swiper-slide" style="background: #FF8604">Slide 3</div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination" id="pager1"></div>
+        </div>
+        <div class="content_body">
+            <div class="center_content">
+                <div class="swiper-container2" id="swiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background: #4390EE">Slide 1</div>
+                        <div class="swiper-slide" style="background: #CA4040">Slide 2</div>
+                        <div class="swiper-slide" style="background: #FF8604">Slide 3</div>
+                    </div>
+                    <div class="swiper-pagination" id="pager2"></div>
+                </div>
+                <div class="news_box">
+                    <a href="./news.html" class="news_more">更多</a>
+                    <div class="news_item">
+                        <div class="title">【特别报道】植树节：校园添新绿 师生乐“栽”时</div>
+                        <div class="time">2022-03-21</div>
+                    </div>
+                     <div class="news_item">
+                         <div class="title">【特别报道】植树节：校园添新绿 师生乐“栽”时</div>
+                         <div class="time">2022-03-21</div>
+                     </div>
+                      <div class="news_item">
+                          <div class="title">【特别报道】植树节：校园添新绿 师生乐“栽”时</div>
+                          <div class="time">2022-03-21</div>
+                      </div>
+                       <div class="news_item">
+                           <div class="title">【特别报道】植树节：校园添新绿 师生乐“栽”时</div>
+                           <div class="time">2022-03-21</div>
+                       </div>
+                    <!-- <div class="news_list" id="newsLists"> </div>
+                    <script type="text/x-jsrender" id="tmplNews2">
+                        {{for items}}
+                        <div class="list"><a href="./newsDetail.html?id={{:id}}" class="title">阿斯蒂芬发</a></div>
+                        {{/for}}
+                    </script> -->
+                </div>
+            </div>
+        </div>
         <div class="area area_intro">
             <div class="img_intro"><img src="../image/rr_about.jpg"></div>
             <div class="intro">
@@ -20,7 +68,7 @@
             
             
         </div>
-        <div class="area area_product">
+        <div class="area area_product" style="display: none;">
             <div class="area_title">产品与服务</div>
             <div class="title_s"><div class="word" >产品</div></div>
             <div class="desc" id="productWord">产品一句话介绍</div>
@@ -63,7 +111,7 @@
                 <div style="position: absolute;top:190px;left:48%;font-size: 56px;color:red;">需提供素材</div>
             </div>
         </div>
-        <div class="area area_news">
+        <!-- <div class="area area_news">
             <div class="area_title">新闻事件</div>
             <div class="news_box">
                 <div class="img_box" id="newsImgs"></div>
@@ -80,69 +128,12 @@
                 </script>
             </div>
             <a href="./news.html" class="view_news">查看更多</a>
-        </div>
+        </div> -->
         <div class="area">
             <div class="area_title">人才招聘</div>
-            <div class="job_bg">
-                <div class="job_motto area_product">
-
-                
-                <div class="title_s"><div class="word" style="background: rgba(239,243,246,1);">用人理念</div></div>
-                <div class="desc2">
-                    <ul>
-                        <li>
-                            <span class="strong">用人不疑  疑人不用</span>
-                            <span class="explain">信你值得信任，值得公司的托付</span>
-                        </li>
-                        <li>
-                            <span class="strong">厚德载物   上善若水</span>
-                            <span class="explain">信你踏实稳重，处事得当，堪当大任</span>
-                        </li>
-                        <li>
-                            <span class="strong">雷厉风行   开拓进取</span>
-                            <span class="explain">信你能积极推进所托事务，完成甚至超额完成任务</span>
-                        </li>
-                        <li>
-                            <span class="strong">兢兢业业   恪尽职守</span>
-                            <span class="explain">信你能全身心投入，遵守规则，一心为公司服务</span>
-                        </li>
-                        <li>
-                            <span class="strong">自强不息   百折不挠</span>
-                            <span class="explain">信你敢于面对问题，克服困难，遇到挫折不轻言放弃</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="info_send">如果感兴趣，请以“姓名+岗位”为邮件名称，发送简历至<a href="mailto:rrui_info@163.com" class="email_after" >rrui_info@163.com</a>邮箱。</div>
-                </div>
-            </div>
             
-            <div class="job_box">
-                <div class="job_lists">
-                    <ul id="jobLists">
-                        
-                    </ul>
-                    <script type="text/x-jsrender" id="tmplJobs">
-                        {{for items}}
-                        <li>
-                            <div class="list_head">
-                                <div class="left">{{:position}}</div>
-                                <div class="right">{{:salary}}</div>
-                                <i></i>
-                            </div>
-                            <div class="list_content">
-                                <div class="num"><span class="label">招聘人数：</span>{{:num}}</div>
-                                <div class="staff_require">
-                                    <h3>任职资格：</h3>
-                                    <div class="require_box">{{:jobRequire}}</div>
-                                    <h3>岗位职责：</h3>
-                                    <div class="require_box">{{:jobDuty}}</div>
-                                </div>
-                            </div>
-                        </li>	
-                        {{/for}}
-                    </script>
-                </div>
-            </div>
+            
+            
         </div>
         <div class="area area_flow" style="display: none;">
             <div class="area_title">合作流程</div>
@@ -150,6 +141,7 @@
         </div>
         ##include("../others/footer.html")
         <script src="../js/zepto.js"></script>
+        <script src="../js/swiper-3.4.2.jquery.min.js"></script>
         <script src="../js/public.js"></script>
         <script src="../js/jsrender.min.js"></script>
         <script src="../js/index.js"></script>

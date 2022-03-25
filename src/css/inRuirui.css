@@ -55,6 +55,31 @@
     margin-bottom: 25px;
     font-size: 18px;
 }
+.meeting_lists{
+    padding:2px;
+
+}
+.meeting_lists .item{
+    margin:12px 0;
+    padding:8px 0;
+    border-bottom: 1px dashed #ccc;
+}
+.meeting_lists .item .new{
+    position: relative;
+    color:#f90;
+}
+.meeting_lists .item .new::after{
+    position: absolute;
+    content: 'new';
+    right:-24px;
+    top:-5px;
+    background-color: #FF455B;
+    padding:0 4px 3px;
+    line-height: 1;
+    color:#fff;
+    border-radius: 6px;
+    font-size: 12px;
+}
 .core_contact{
     display: flex;
 }
