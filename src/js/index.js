@@ -1,3 +1,4 @@
+import {indexNews} from './mock.js';
 //大图轮播
 var swiper = new Swiper('#swiper1', {
     pagination: '#pager1',
@@ -22,23 +23,10 @@ $('#newsLists').on('mouseenter','.list',function(){
         $('#newsImgs .list').eq(i).addClass('inside');
     }
 });
-//job
-$('#jobLists').on('click','li .list_head',function(){ 
-    
-    if($(this).hasClass('down')){
-        $(this).removeClass('down');
-        $(this).next().slideUp();
-    }else{
-        $('#jobLists li .list_head').next().slideUp();
-        $('#jobLists li .list_head').removeClass('down');
-        $(this).addClass('down');
-        $(this).next().slideDown();
-    }
-    
-    
-});
 
-var html2 = $("#tmplNews2").render([1,1,1,1]);
+//start
+var html2 = $("#tmplNews2").render(indexNews);
+console.log(html2);
 $("#newsLists").html(html2);
 // $.ajax({ //新闻
 //     url:"/api/news/query?page=1&pageSize=5",
@@ -53,6 +41,7 @@ $("#newsLists").html(html2);
 //         $("#newsLists").html(html2);
 //     }
 // });
+
 $.ajax({//公司介绍
     url:"/api/company/info",
     dataType: "json",

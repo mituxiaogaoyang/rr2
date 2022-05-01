@@ -22,20 +22,28 @@
                     <div class="list active">
                         <div class="title">成功案例</div>
                         <div class="meeting_lists">
-                            <div class="item"><span class="new">夯实大国粮仓根基</span></div>
-                            <div class="item"><span class="new">防疫保供稳物价 各地聚力“惠民生”</span></div>
-                            <div class="item"><span>俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</span></div>
-                            <div class="item"><span>防疫保供稳物价 各地聚力“惠民生”</span></div>
-                            <div class="item"><span>防疫保供稳物价 各地聚力“惠民生”</span></div>
-                            <div class="item"><span>防疫保供稳物价 各地聚力“惠民生”</span></div>
-
-                            <div class="item"><span>防疫保供稳物价 各地聚力“惠民生”</span></div>
+                            <div class="item"><a href="./newsDetail.html" class="new">联系赞助-接洽方式</a></div>
+                            <div class="item"><a href="./newsDetail.html" class="new">夯实大国粮仓根基</a></div>
+                            <div class="item"><a href="./newsDetail.html" class="new">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                            <div class="item"><a href="./newsDetail.html">俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</a></div>
+                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
                         </div>
                         
                     </div>
                     <div class="list">
                         <div class="title">咨询窗口</div>
-                        <div class="content" id="contentService">服务内容</div>
+                        <div class="form_box" id="contentService">
+                            <input type="text" placeholder="您所在的公司/大学/机构名称">
+                            <input type="text" placeholder="您的职称？">
+                            <input type="text" placeholder="您的姓名">
+                            <input type="text" placeholder="您的邮箱">
+                            <input type="text" placeholder="咨询问题类别">
+                            <textarea placeholder="问题描述"></textarea>
+                            <div class="btn_submit">提交</div>
+                        </div>
                         
                     </div>
                 </div>
@@ -45,7 +53,7 @@
         ##include("../others/footer.html")
         <script src="../js/zepto.js"></script>
         <script src="../js/public.js"></script>
-        <script src="../js/inRuirui.js"></script>
+        <script type="module" src="../js/inRuirui.js"></script>
         <script>
             getData('/api/training/advantage/feature/get',"#adv");
             getData('/api/training/contact/method/get',"#contact");

@@ -65,10 +65,6 @@
     padding:8px 0;
     border-bottom: 1px dashed #ccc;
     color:#666;
-    cursor: pointer;
-}
-.meeting_lists .item:hover{
-    color:#f90;
 }
 .meeting_lists .item .new{
     position: relative;
@@ -117,7 +113,62 @@
 .core_contact .list  .erweima img{
     width:100%;
 }
+.form_box{
 
+}
+input{
+    width: 360px;
+    height: 32px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #dcdee2;
+    border-radius: 4px;
+    color: #515a6e;
+    background-color: #fff;
+    background-image: none;
+    outline: none;
+    margin:10px 0;
+}
+textarea{
+    display: block;
+    width: 360px;
+    min-height: 80px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #dcdee2;
+    border-radius: 4px;
+    color: #515a6e;
+    background-color: #fff;
+    background-image: none;
+    outline: none;
+    margin:10px 0;
+}
+input:focus, input:hover{
+    border-color: #2370b8;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #999;
+} 
+.btn_submit{
+    width:360px;
+    text-align: center;
+    height:32px;
+    line-height:32px;
+    color:#fff;
+    border-radius: 6px;
+    background-color: #f90;
+    margin:16px 0;
+}  
 @media screen and (max-width: 768px) {
     .img_banner{
         min-height:150px;

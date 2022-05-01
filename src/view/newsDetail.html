@@ -26,8 +26,18 @@
         <script src="../js/jsrender.min.js"></script>
         <script>
             var id = location.search.split('=')[1];
+            //start
+            var newDetail = {
+                title: '科技咨询服务介绍',
+                date: '2022-3-22',
+                content:'<p style="">我们根据客户的特定要求，为客户提供针对每个特定应用的先进加工解决方案。</p><p style="">为了实现这一目标，我们涵盖了有关客户整个生产链的研发/咨询，其中包括：</p><ul style=""><li>原材料，</li><li>准备压制粉末，</li><li>烧结,</li><li>表面处理和刃磨，</li><li>涂层<strong>，</strong></li><li>后处理,</li><li>加工条件,</li><li>现场测试,</li><li>在开发材料和新技术的生产中的实施</li></ul><p style=""><strong>研发</strong></p><p style="">在标准 ISO 材料 P、K、M、S、H、N 和复合材料的竞争加工性能范围内，提供动态且全面的刀具材料系列，涵盖旋转和非旋转刀具的材质等级。</p><ul style=""><li><a href="https://docs.google.com/presentation/d/1akbi7GISEWIapcDYH6r4VsL0fHIwtZvF/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">钢 (P)</a></li><li><a href="https://docs.google.com/presentation/d/1jZT9efaaKxuEkDs9yJGVXBWaJ7MnHp3-/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">铸铁 (k)</a></li><li><a href="https://docs.google.com/presentation/d/1w5w4RjGJU09ryNKmJM_x2E2C4l0dqXav/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">不锈钢 (M)</a></li><li><a href="https://docs.google.com/presentation/d/1i3TZdi8huq-EX-iWhs_iujuZshB55lgk/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">高温允许 (SNi)（镍基合金）</a></li><li><a href="https://docs.google.com/presentation/d/1-x8kfTuYYfnO0bJ6kASmqZeQ7w3gxew_/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">高温允许 (STi)（钛基合金）</a></li><li><a href="https://docs.google.com/presentation/d/1KlatU1gHWI9_yt-DOxbV56qOAh7NKIsH/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">硬化钢 (H)</a></li><li><a href="https://docs.google.com/presentation/d/1un3eGMXhgx0z0OIs1TDEZX33bjGqCITr/edit?usp=sharing&amp;ouid=112057359284585661961&amp;rtpof=true&amp;sd=true" target="_blank">有色 (N) 铝基允许</a></li><li>有色（N）复合材料</li></ul><p style="">为了实现最高的生产力和性能，我们涵盖了所有刀具材料的开发，从原材料/准备压制粉末到加工的最终步骤。 包括涂层、后处理和基准测试。</p><p style=""><strong>工艺优化</strong></p><p style="">作为牌号开发的一部分，通过实施和流程优化指导和支持客户团队。</p><p style="">我们致力于提供满足或超过客户要求和期望的牌号。</p><p style=""><strong>新发展的基准</strong></p><p style="">为后续持续改进的发展设定基准。 我们的基准测试考虑了世界一流刀具材料的性能。</p><p style=""><strong>生产管理</strong></p><p style="">通过整个制造过程中严格的质量保证来实现保护生产中的开发和客户材料特性。</p><p style=""><strong>质量管理</strong></p><p style="">实施质量保证计划，确保所有合作伙伴和员工的积极参与和承诺。</p><p style="">我们在最先进的故障分析技术以及物理和机械性能测量设备的实施方面提供支持。 这包括通过 SEM 和 XRD 进行的微观分析，用于故障分析和基准测试。</p><p style=""><strong>支持及培训</strong></p><p data-we-empty-p="" style=""></p><p style="">对客户团队进行研发、生产、质量保证、基准测试、故障分析和加工性能方面的培训，以保持可靠和定性的刀具材料。<b></b></p>'
+            };
+            var html = $("#tmplNews").render(newDetail);
+            $("#newsDetail").html(html);
+            
+            //end
             if(Number(id)){
-                $.ajax({//招聘
+                $.ajax({//
                     url:"/api/news/get?id="+Number(id),
                     dataType: "json",
                     type: 'get',

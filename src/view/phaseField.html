@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/inRuirui.css"></link>
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="img_banner"><img src="../image/intro.jpg" alt="" id="bannerImg"></div>
+        <div class="core_inRuirui">
+            <div class="left">
+                <div class="title">相场软件</div>
+                <div class="lists" id="tabTitle">
+                    <div class="list active">软件简介</div>
+                    <div class="list">核心功能</div>
+                    <div class="list">优势与特色</div>
+                    <div class="list">采购流程</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="lists" id="content">
+                    <div class="list active">
+                        <div class="title">软件简介</div>
+                        <div class="content" id="intro">
+                            <h3>正在加载...</h3>
+                        </div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">核心功能</div>
+                        <div class="content" id="function"></div>
+
+                    </div>
+                    <div class="list">
+                        <div class="title">优势与特色</div>
+                        <div class="content" id="adv"> </div>
+                        
+                    </div>
+                    <div class="list">
+                        <div class="title">采购流程</div>
+                        <div class="content" id="purchase">采购流程</div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/zepto.js"></script>
+        <script src="../js/public.js"></script>
+        <script type="module" src="../js/inRuirui.js"></script>
+        <script>
+            const calTpp = {
+                intro:{
+                    content: "<img src=\"http://console.rr-tek.com/ct/website/6ce537da15fe41a6869e156be5d0bea8.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><img src=\"http://console.rr-tek.com/ct/website/d84e639063e1411c8a831a6f67c24350.png\" style=\"max-width:100%;\" contenteditable=\"false\"/>"
+                }
+            }
+            $("#intro").html(calTpp.content);
+            //end
+            getData("/api/caltpp/advantage/feature/get","#adv");
+            getData("/api/caltpp/core/function/get","#function");
+            getData("/api/caltpp/purchasing/process/get","#purchase");
+            getData("/api/caltpp/soft/description/get","#intro");
+        </script>
+    </body>
+</html>

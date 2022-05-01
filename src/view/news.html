@@ -34,6 +34,40 @@
         <script src="../js/jsrender.min.js"></script>
         <script src="../js/jquery.pagination.js"></script>
         <script>
+            //start
+            const newsList = {
+                items: [
+                    {createTime: 1647912142000,
+                    guidePic: "http://console.rr-tek.com/ct/news/0d91c8f31eb04006ba0b7c1feb866d5b.png",
+                    id: 4,
+                    introduction: "\n我们根据客户的特定要求，为客户提供针对每个特定应用的先进加工解决方案。",
+                    status: 1,
+                    title: "科技咨询服务介绍"},{
+                    createTime: 1647569147000,
+                    guidePic: "http://console.rr-tek.com/ct/news/7f2f65a4e028422fbb688e5758ed2e32.png",
+                    id: 3,
+                    introduction: "Albir Layyous博士来自以色列，硬质合金、金属陶瓷和耐磨涂层领域世界顶尖专家，中南大学客座教授。",
+                    status: 1,
+                    title: "专家介绍-Albir博士",
+                    },{createTime: 1647912142000,
+                    guidePic: "http://console.rr-tek.com/ct/news/0d91c8f31eb04006ba0b7c1feb866d5b.png",
+                    id: 4,
+                    introduction: "\n我们根据客户的特定要求，为客户提供针对每个特定应用的先进加工解决方案。",
+                    status: 1,
+                    title: "科技咨询服务介绍"},{
+                    createTime: 1647569147000,
+                    guidePic: "http://console.rr-tek.com/ct/news/7f2f65a4e028422fbb688e5758ed2e32.png",
+                    id: 3,
+                    introduction: "Albir Layyous博士来自以色列，硬质合金、金属陶瓷和耐磨涂层领域世界顶尖专家，中南大学客座教授。",
+                    status: 1,
+                    title: "专家介绍-Albir博士",
+                    }
+
+                ]
+            }
+            var html = $("#tmplNews").render(newsList);
+            $("#newsList").html(html);
+            //end
             var pageSize = 8;
             $.ajax({//招聘
                 url:"/api/news/query?page=1&pageSize="+pageSize,

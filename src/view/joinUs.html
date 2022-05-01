@@ -8,7 +8,7 @@
     </head>
     <body>
         ##include("../others/header.html")
-        <div class="core_news">
+        <div class="core_jobs">
             <div class="job_bg">
                 <div class="job_motto area_product">
                     <div class="title_s">
@@ -76,6 +76,112 @@
         <script src="../js/jsrender.min.js"></script>
         <script src="../js/jquery.pagination.js"></script>
         <script>
+            const list = {
+                items:[
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1. 本科或硕士学历； </p><p>2. 熟悉C语言编程，能实现Python或Fortran或Matlab语言转化为C/C++语言，熟悉软件包装；</p><p>3. 深入理解linux系统，有高性能计算平台搭建经验者优先； </p><p>4. 有从事过材料计算经验者优先</p>",
+                        num: "1人",
+                        position: "后端开发工程师",
+                        salary: "8K-10K+绩效奖金",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1、负责销售活动的策划与执行，开拓新客户增加产品销售范围。</p><p>2、积极开发和维护客户关系，保持和客户的有效沟通，实时把握客户需求。及时处理客户问题，全流程跟进客户项目直到项目落地。</p><p>3、深入挖掘国内外市场潜力，牵头整合公司资源，抓住有效项目机会开拓新业绩点；</p>",
+                        jobRequire: "<p>1、本科以上学历，理工专业优先。具备2、年以上的软件、材料类的销售或市场经验有限。具备较好的英语水平，能与国外客户进行正常沟通</p><p>2、年以上的软件、材料类的销售或市场经验有限。具备较好的英语水平，能与国外客户进行正常沟通</p><p>3、沟通能力强，热爱销售工作；为人正直、热情、进取，能承受较大工作压力。</p><p>4、适应经常出差。</p>",
+                        num: "5人",
+                        position: "销售工程师",
+                        salary: "8K/月+绩效奖金+服务满2年后依据考核表现和实际贡献享受技术股分红+期权激励",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1、承担软件售前演示工作；</p><p>2、协助完成项目需求分析并与研发团队对接需求；</p><p>3、负责客户现场部署实施及用户培训工作；</p><p>4、协助完成项目验收。</p>",                        num: "1人",
+                        position: "软件实施工程师",
+                        salary: "8K/月+绩效奖金+服务满2年后依据考核表现和实际贡献享受技术股分红+期权激励",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1. 本科或硕士学历； </p><p>2. 熟悉C语言编程，能实现Python或Fortran或Matlab语言转化为C/C++语言，熟悉软件包装；</p><p>3. 深入理解linux系统，有高性能计算平台搭建经验者优先； </p><p>4. 有从事过材料计算经验者优先</p>",
+                        num: "1人",
+                        position: "前端开发工程师",
+                        salary: "8K-10K+绩效奖金",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1. 本科或硕士学历； </p><p>2. 熟悉C语言编程，能实现Python或Fortran或Matlab语言转化为C/C++语言，熟悉软件包装；</p><p>3. 深入理解linux系统，有高性能计算平台搭建经验者优先； </p><p>4. 有从事过材料计算经验者优先</p>",
+                        num: "1人",
+                        position: "后端开发工程师",
+                        salary: "8K-10K+绩效奖金",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1、负责销售活动的策划与执行，开拓新客户增加产品销售范围。</p><p>2、积极开发和维护客户关系，保持和客户的有效沟通，实时把握客户需求。及时处理客户问题，全流程跟进客户项目直到项目落地。</p><p>3、深入挖掘国内外市场潜力，牵头整合公司资源，抓住有效项目机会开拓新业绩点；</p>",
+                        jobRequire: "<p>1、本科以上学历，理工专业优先。具备2、年以上的软件、材料类的销售或市场经验有限。具备较好的英语水平，能与国外客户进行正常沟通</p><p>2、年以上的软件、材料类的销售或市场经验有限。具备较好的英语水平，能与国外客户进行正常沟通</p><p>3、沟通能力强，热爱销售工作；为人正直、热情、进取，能承受较大工作压力。</p><p>4、适应经常出差。</p>",
+                        num: "5人",
+                        position: "销售工程师",
+                        salary: "8K/月+绩效奖金+服务满2年后依据考核表现和实际贡献享受技术股分红+期权激励",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                    {
+                        createTime: 1638858259000,
+                        createUserId: 1,
+                        id: 15,
+                        jobDuty: "<p>1、承担软件售前演示工作；</p><p>2、协助完成项目需求分析并与研发团队对接需求；</p><p>3、负责客户现场部署实施及用户培训工作；</p><p>4、协助完成项目验收。</p>",                        num: "1人",
+                        position: "软件实施工程师",
+                        salary: "8K/月+绩效奖金+服务满2年后依据考核表现和实际贡献享受技术股分红+期权激励",
+                        status: 1,
+                        updateTime: 1647522261000,
+                        updateUserId: 1,
+                    },
+                ]
+            };
+            var html = $("#tmplJobs").render(list);
+            $("#jobLists").html(html);
+            //end
+            //job
+            $('#jobLists').on('click','li .list_head',function(){ 
+                
+                if($(this).hasClass('down')){
+                    $(this).removeClass('down');
+                    $(this).next().slideUp();
+                }else{
+                    $('#jobLists li .list_head').next().slideUp();
+                    $('#jobLists li .list_head').removeClass('down');
+                    $(this).addClass('down');
+                    $(this).next().slideDown();
+                    
+                }
+                
+            });
             $.ajax({//招聘
                 url:"/api/recruitment/query?page=1&pageSize=99",
                 dataType: "json",

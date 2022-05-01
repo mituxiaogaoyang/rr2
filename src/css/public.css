@@ -6,7 +6,11 @@ html,body{
 dl,dt,dd{
     margin:0
 }
-
+ul,li{
+    margin: 0;
+    list-style: none;
+    padding:0;
+}
 a{
     text-decoration: none;
     color:#666;
@@ -81,6 +85,10 @@ img{
     display: none;
     text-align: center;
     padding:6px 0 12px;
+}
+.header .navs .list .down2{
+    left:-36px;
+    width:210px;
 }
 .header .navs .list .down a{
     display: block;
