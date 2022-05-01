@@ -85,10 +85,15 @@ img{
     display: none;
     text-align: center;
     padding:6px 0 12px;
+    font-size:13px;
 }
 .header .navs .list .down2{
     left:-36px;
     width:210px;
+}
+.header .navs .list .down3 {
+    left: -76px;
+    width: 270px;
 }
 .header .navs .list .down a{
     display: block;
@@ -115,6 +120,31 @@ img{
 }
 .header .navs .list .down .content dl dd{
     font-size: 13px;
+    width:75px;
+}
+.header .navs .list .down .content dl dd .lists3_box{
+    position: absolute;
+    top:0;
+    right:0;
+    width:118px;
+    background-color: #fff;
+    height: 206px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    display: none;
+}
+.header .navs .list .down .content dl dd .lists3_box a{
+    max-width: 116px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+.header .navs .list .down .content dl dd:hover .lists3_box {
+    display: flex;
 }
 .footer{
     background-color: rgba(39, 43, 59, .8);
