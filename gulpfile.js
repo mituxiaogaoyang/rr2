@@ -50,7 +50,7 @@ function webServer(){
           open: 'http://localhost:8080/index.html',
           proxies: [{
             source: '/api',
-            target: 'http://106.52.176.228'//常江-'http://112.126.61.9:8070' // 代理的域名
+            target: 'http://112.126.61.9:8070'//'http://106.52.176.228'//常江-'http://112.126.61.9:8070' // 代理的域名
           }]
       }));
 };

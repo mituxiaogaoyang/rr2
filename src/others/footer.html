@@ -38,5 +38,26 @@
         <span>地址： 湖南省长沙市岳麓区溁左路中南大学科技园研发总部1栋549号 </span>
     </div>
 </div>
+<script src="../js/zepto.js"></script>
+<script src="../js/public.js"></script>
+<script>
+const types = [3 ,4 ,5];//其他软件3 国外软件4 其他产品5
+types.forEach(item =>{
+    $.ajax({//公司介绍
+        url:"/api/product/query?type="+item,
+        dataType: "json",
+        type: 'get',
+        success: function(res){
+            var lists =res.data;
+            const domP = $('#type'+item)
+            lists.forEach(item =>{
+                var $link=$('<a href="./app_product.html?id='+item.id+'">'+item.name+'</a>');
+                domP.append($link);
+            })
+        }
+    });
+})
+
+</script>
     
     

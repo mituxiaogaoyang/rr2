@@ -48,8 +48,6 @@
             </div>
         </div>
         ##include("../others/footer.html")
-        <script src="../js/zepto.js"></script>
-        <script src="../js/public.js"></script>
         <script type="module" src="../js/inRuirui.js"></script>
         <script>
             //start
@@ -60,10 +58,10 @@
             }
             $("#intro2").html(calTpp.intro.content);
             //end
-            getData("/api/caltpp/advantage/feature/get","#adv");
-            getData("/api/caltpp/core/function/get","#function");
-            getData("/api/caltpp/purchasing/process/get","#purchase");
-            getData("/api/caltpp/soft/description/get","#intro");
+            // getData("/api/caltpp/advantage/feature/get","#adv");
+            // getData("/api/caltpp/core/function/get","#function");
+            // getData("/api/caltpp/purchasing/process/get","#purchase");
+            // getData("/api/caltpp/soft/description/get","#intro");
         </script>
     </body>
 </html>

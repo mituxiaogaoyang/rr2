@@ -23,14 +23,14 @@ function getData(url,id){
     });
 }
 //start
-import {inRR} from './mock.js';
-$("#intro").html(inRR.intro);
-$("#culture").html(inRR.culture);
-$("#event").html(inRR.intro);
-$("#ip").html(inRR.culture);
-$("#adv").html(inRR.intro);
-$("#function").html(inRR.culture);
-$("#undertake").html(inRR.culture);
+// import {inRR} from './mock.js';
+// $("#intro").html(inRR.intro);
+// $("#culture").html(inRR.culture);
+// $("#event").html(inRR.intro);
+// $("#ip").html(inRR.culture);
+// $("#adv").html(inRR.intro);
+// $("#function").html(inRR.culture);
+// $("#undertake").html(inRR.culture);
 //end
 $.ajax({//公司介绍
     url:"/api/company/info",
