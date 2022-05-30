@@ -41,7 +41,9 @@ function watch(){
   Gulp.watch('src/css/*', Gulp.series(copyCss, copyHtml));
   Gulp.watch('src/images/*', copyImages);
 }
- 
+// 买家账号bqpukc0778 @sandbox.com
+// 登录密码111111
+// 支付密码111111
 function webServer(){
     return Gulp.src(Dist).pipe(WebServer({
           port: 8080,

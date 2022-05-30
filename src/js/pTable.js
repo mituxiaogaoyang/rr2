@@ -127,23 +127,88 @@ $('body').on('click', '.element', function(e) {
     
 });
 const domMask = $('#window-mask');
-const domPop = $('#upgrade-dlg');
+const domPop = $('#upgrade-dlg');//购买弹框
+const domInfo = $('#userInfo'); //用户信息弹框
+let downloadId, orderCode;
 function download(id){
+    downloadId = id;
     domMask.fadeIn();
-    domPop.fadeIn();
+    domInfo.fadeIn();
 }
 $('#xPop').click(() =>{
     domMask.fadeOut();
     domPop.fadeOut();
+    domInfo.fadeOut();
 })
 $('.price-paytype').click(function(){
     $('.price-paytype').removeClass('ac');
     $(this).addClass('ac');
 })
+$('#infoSubBtn').click(submitInfo);
+function submitInfo(){
+    const userName = $('#userName').val();
+    const userCompany = $('#userCompany').val();
+    const userEmail = $('#userEmail').val();
+    if (userName && userCompany && userEmail ){
+        var params = {
+            userName: userName,
+            companyAddress: userCompany,
+            email: userEmail,
+            fileResourceIds: downloadId,
+        };
+        $.ajax({
+            url: "/api/order/pre",
+            dataType: "json",
+            data: params,
+            type: 'post',
+            success: function (res) {
+                orderCode = res.data;
+                domPop.fadeIn();
+                domInfo.fadeOut();
+                domPop.fadeIn();
+            }
+        });
+    }
+}
 //去支付
 const aliPaySite = "http://112.126.61.9:8077/tpay/index"; //http://112.126.61.9:8077/tpay/pay
 $('#payBtn').click(function(){
-    const domCurrent = $('.dlg-item').find('.ac');
+    const domCurrent = $('.dlg-item').find('.ac'); //orderCode
+    const payM = domCurrent.hasClass('alipay')?'ali':'wechat'; //支付选择
+    const u = navigator.userAgent, app = navigator.appVersion;
+    const isMobile = !!u.match(/AppleWebKit.*Mobile.*/);
+    var payType;
+    if (domCurrent.hasClass('alipay')){
+        if (isMobile) payType = 2;
+        else payType = 1;
+    } else if (domCurrent.hasClass('wechat')) {
+        if (isMobile) payType = 4;
+        else payType = 3;
+    }else{
+       $('#forPubPop').fadeIn();
+       return;
+    }
+
+    var params = {
+        orderCode: orderCode,
+        payType: payType, //1-ali-pc  2-ali-moblie  3-wechat-pc 4-wechat-mobile
+    };
+    $.ajax({
+        url: "/api/order/pay",
+        dataType: "json",
+        data: params,
+        type: 'post',
+        success: function (resp) {
+            if (payType===1){
+                const div = document.createElement('divform');
+                div.innerHTML = resp.data;
+                document.body.appendChild(div);
+                //document.forms[0].acceptCharset = 'GBK'; //保持与支付宝默认编码格式一致，如果不一致将会出现：调试错误，请回到请求来源地，重新发起请求，错误代码 invalid-signature 错误原因: 验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配
+                document.forms[0].submit();
+            }
+            
+        }
+    });return
     if (domCurrent.hasClass('wechat')){
         $.ajax({
             url: "/api/element/query/get?elementCodes=",
@@ -162,7 +227,7 @@ $('#payBtn').click(function(){
             }
         });
     } else if (domCurrent.hasClass('alipay')){
-        window.location.href = aliPaySite;
+        //window.location.href = aliPaySite;
     }else{
         $('#forPubPop').fadeIn();
     }

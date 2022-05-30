@@ -18,6 +18,9 @@ a{
 a:hover{
     color:#2370b8;
 }
+.btn_anchor:hover {
+    color: #2370b8;
+}
 a.active{
     color:#2370b8;
 }

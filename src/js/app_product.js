@@ -14,34 +14,29 @@ const queryStr = location.search;
 const id = queryStr.split('=')[1];
 console.log(id);
 if(id == 'calTpp'){
-    
+    getData("/api/product/caltpp/get");
+}else if (id == 'phaseField') {
+    getData("/api/product/xc/get");
+}else{
+    getData("/api/product/get",id);
 }
-function getData(url,id){
+
+function getData(url,ids){
+    var url2 ;
+    if(ids){
+        url2 = url + '?id=' + ids;
+    }else{
+        url2 = url;
+    }
     $.ajax({//知识产权
-        url:url,
+        url: url2,
         dataType: "json",
         type: 'get',
         success: function(res){
-            $(id).html(res.data.content);
+            $('#intro2').html(res.data.introduction);
+            $('#function').html(res.data.coreFunction);
+            $('#adv').html(res.data.advantage);
+            $('#purchase').html(res.data.purchase);
         }
     });
 }
-//start
-// import {inRR} from './mock.js';
-// $("#intro").html(inRR.intro);
-// $("#culture").html(inRR.culture);
-// $("#event").html(inRR.intro);
-// $("#ip").html(inRR.culture);
-// $("#adv").html(inRR.intro);
-// $("#function").html(inRR.culture);
-// $("#undertake").html(inRR.culture);
-//end
-$.ajax({//公司介绍
-    url:"/api/company/info",
-    dataType: "json",
-    type: 'get',
-    success: function(res){
-        var data =res.data;
-        $("#bannerImg").attr('src',data.guidePic);
-    }
-});

@@ -42,13 +42,25 @@
 .match_box .file_list{
     margin:6px 0;
 }
-.match_box .file_list span{
-    cursor: pointer;
+.match_box .file_list span.name{
     color: rgba(36,112,184,.8);
+    display: inline-block;
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 .match_box .file_list .preview_btn{
     font-size: 12px;
-    margin-left:15px;
+    margin:0 6px 0 16px;
+    vertical-align: middle;
+}
+.match_box .file_list .down_btn {
+    font-size: 12px;
+    vertical-align: middle;
+    cursor: pointer;
 }
 .container_pTable {
     margin: 0 auto;
@@ -314,4 +326,73 @@
 }
 .transp {
     opacity: 0.25;
+}
+input {
+    width: 360px;
+    height: 32px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #dcdee2;
+    border-radius: 4px;
+    color: #515a6e;
+    background-color: #fff;
+    background-image: none;
+    outline: none;
+    margin: 10px 0;
+}
+
+textarea {
+    display: block;
+    width: 360px;
+    min-height: 80px;
+    line-height: 1.5;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #dcdee2;
+    border-radius: 4px;
+    color: #515a6e;
+    background-color: #fff;
+    background-image: none;
+    outline: none;
+    margin: 10px 0;
+}
+
+input:focus,
+input:hover {
+    border-color: #2370b8;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #999;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #999;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #999;
+}
+
+.btn_submit {
+    width: 360px;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #f90;
+    margin: 16px 0;
+    cursor: pointer;
+}
+.userinfo_box{
+    width:360px;
+    margin:0 auto;
+}
+.userinfo_box .dialog-title {
+    text-align: center;
 }

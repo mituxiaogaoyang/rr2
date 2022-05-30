@@ -22,21 +22,30 @@
                 </div>
                 <div class="match_box">
                     <div class="word">匹配到<span class="num" id="fileNum">45</span>个相关文件：</div>
-                    <div class="file_lists" id="fileList">
-                        <div class="file_list" >
-                            <span onclick="download(2)">文件1.pdf</span> 
-                            <a class="preview_btn" href="a" target="_blank">预览</a> 
-                        </div>
-                        <div class="file_list"><span>文件2.pdf</span> </div>
+                    <div class="file_lists" id="fileList"> 
                     </div>
                     <script type="text/x-jsrender" id="tmplFiles">
                         {{for data}}
-                            <div class="file_list" onclick="download({{:fileResourceId}})"> <span>{{:fileResourceName}}</span> </div>
+                            <div class="file_list" > 
+                                <span  class="name" title="{{:fileSourceName}}">{{:fileSourceName}}</span>
+                                <a class="preview_btn" href="{{:previewPic}}" target="_blank">预览</a>
+                                <span class="btn_anchor down_btn" onclick="download({{:id}})">下载</span>
+                            </div>
                         {{/for}}
                     </script>
                 </div>
             </div>
             <div id="window-mask" class="window-mask"></div>
+            <div class="dialog zf-dialog dialog-box" title="" id="userInfo">
+                <div class="userinfo_box">
+                    <h2 class="dialog-title">方便联系，请填写以下信息</h2>
+                    <input type="text" placeholder="您的姓名" id="userName">
+                    <input type="text" placeholder="您所在的公司/大学/机构名称" id="userCompany">
+                    <input type="text" placeholder="您的邮箱" id="userEmail">
+                    <div class="btn_submit" id="infoSubBtn">提交</div>
+                </div>
+                
+            </div>
             <div class="dialog zf-dialog dialog-box" title="" id="upgrade-dlg">
                 <h2 class="dialog-title">购买</h2>
                 <div class="dlg-content pay-form">
