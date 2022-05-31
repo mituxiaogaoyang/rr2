@@ -20,7 +20,7 @@ if(id == 'calTpp'){
 }else{
     getData("/api/product/get",id);
 }
-
+//type-4 国外软件  5-其他产品
 function getData(url,ids){
     var url2 ;
     if(ids){
@@ -33,10 +33,15 @@ function getData(url,ids){
         dataType: "json",
         type: 'get',
         success: function(res){
+            $("#productName").text(res.data.name);
             $('#intro2').html(res.data.introduction);
             $('#function').html(res.data.coreFunction);
             $('#adv').html(res.data.advantage);
             $('#purchase').html(res.data.purchase);
+            if (res.data.type == 5) {
+                
+                $("#introWord").text('产品简介');
+            }
         }
     });
 }

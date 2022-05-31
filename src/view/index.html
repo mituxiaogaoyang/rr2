@@ -10,42 +10,41 @@
     <body>
         ##include("../others/header.html")
         <div class="swiper-container" id="swiper1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: #4390EE">
-                    <a href="./meetingService.html"><img src="../image/banner.jpg" alt=""></a>
+            <div class="swiper-wrapper" id="bannerBox1"> </div>
+            <script type="text/x-jsrender" id="tmplBanner1">
+                {{for data}}
+                <div class="swiper-slide">
+                    <a href="{{:linkUrl}}" class="title"><img src="{{:picUrl}}" alt=""></a>
                 </div>
-                <div class="swiper-slide" style="background: #4390EE">
-                    <a href="trainingService.html"><img src="../image/banner20210422_fanyi.png" alt=""></a>
-                </div>
-                <div class="swiper-slide" style="background: #FF8604"><a href="./news.html"></a> Slide 3</div>
-            </div>
+                {{/for}}
+            </script>
             <!-- Add Pagination -->
             <div class="swiper-pagination" id="pager1"></div>
         </div>
         <div class="content_body">
             <div class="center_content">
                 <div class="swiper-container2" id="swiper2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide" style="background: #4390EE"><a href="./caltpp.html">
-                            <img src="../image/bb1.jpeg" alt="">
-                        </a></div>
-                        <div class="swiper-slide" style="background: #CA4040"><a href="./phaseField.html">
-                            <img src="../image/bb2.jpg" alt="">
-                        </a></div>
-                        <div class="swiper-slide" style="background: #FF8604"><a href="">
-                            <img src="../image/bb1.jpeg" alt="">
-                        </a></div>
+                    <div class="swiper-wrapper" id="bannerBox2">
                     </div>
+                    <script type="text/x-jsrender" id="tmplBanner2">
+                    {{for data}}
+                        <div class="swiper-slide">
+                            <a href="{{:linkUrl}}" class="title"><img src="{{:picUrl}}" alt=""></a>
+                        </div>
+                    {{/for}}
+                    </script>
                     <div class="swiper-pagination" id="pager2"></div>
                 </div>
                 <div class="news_box">
                     <a href="./news.html" class="news_more">更多</a>
                     <div id="newsLists"> </div>
+                    
                     <script type="text/x-jsrender" id="tmplNews2">
                         {{for items}}
                         <div class="news_item">
-                            <a href="./newsDetail.html?id={{:id}}" class="title">{{:title}}</a>
-                            <div class="time">{{:date}}</div>
+                            <div class="news_title"><a href="./newsDetail.html?id={{:id}}" class="title">{{:title}}</a>
+                            </div>
+                            <div class="time">{{:createTime}}</div>
                         </div>
                         {{/for}}
                     </script>
@@ -54,9 +53,8 @@
         </div>
 
         ##include("../others/footer.html")
-        <script src="../js/zepto.js"></script>
         <script src="../js/swiper-3.4.2.jquery.min.js"></script>
         <script src="../js/jsrender.min.js"></script>
-        <script type="module" src="../js/index.js"></script>
+        <script  src="../js/index.js"></script>
     </body>
 </html>

@@ -45,7 +45,7 @@
 .match_box .file_list span.name{
     color: rgba(36,112,184,.8);
     display: inline-block;
-    max-width: 230px;
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
@@ -54,7 +54,7 @@
 }
 .match_box .file_list .preview_btn{
     font-size: 12px;
-    margin:0 6px 0 16px;
+    margin:0 5px 0 12px;
     vertical-align: middle;
 }
 .match_box .file_list .down_btn {

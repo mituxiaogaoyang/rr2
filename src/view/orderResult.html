@@ -3,18 +3,144 @@
   <head>
     <title>长沙锐睿科技有限公司</title>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="./image/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/public.css">
-    </link>
-    </link>
-
+    <link rel="shortcut icon" href="./image/favicon.ico"></link>
+    <link rel="stylesheet" type="text/css" href="../css/public.css"> </link>
+    <style type="text/css">
+      .content_core{
+        margin:100px auto 25px;
+        width:600px;
+      }
+      .result_box{
+        
+      }
+      .win{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+      .win img{
+        width:60px;
+      }
+      .result_checking{
+        font-size: 20px;
+        color:#999;
+        text-align: center;
+      }
+      .result_word{margin-left:20px;font-size:18px;}
+      .file_box{
+        padding: 8px 16px;
+        background-color: #ecf8ff;
+        margin:60px 0;
+        position: relative;
+      }
+      .file_box .title{
+        font-weight: bold;
+        color:#000;
+        margin:20px 0;
+      }
+      .file_box .list{
+        margin:12px 0;
+        display: flex;
+      }
+      .file_box .list .val{
+        color: #000;
+      }
+      .down_btn{
+        position: absolute;
+        top:20px;
+        right: 20px;
+        width:100px;
+        border:1px solid #f90;
+        height:30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .back_btn{
+        width:150px;
+        border:1px solid #2370b8;
+        height:36px;
+        line-height: 36px;
+        text-align: center;
+        border-radius: 6px;
+        display: block;
+        margin:80px auto;
+      }
+    </style>
   </head>
 
   <body>
     ##include("../others/header.html")
-
+    <div class="content_core">
+       <div class="result_checking">结果查询中...</div>
+       <div class="result_box">
+         <div class="win">
+           <img src="./image/win.png" alt="">
+           <span class="result_word">支付成功！</span>
+         </div>
+         <div class="win">
+           <img src="./image/fail.png" alt="">
+           <span class="result_word">支付失败！</span>
+         </div>
+       </div>
+       <div class="file_box">
+        <div class="title">订单信息</div>
+        <div class="down_btn">文件下载</div>
+        <div class="list">
+          <div class="label">订单号：</div>
+          <div class="val" id="orderCode">2134134</div>
+        </div>
+        <div class="list">
+          <div class="label">文件名：</div>
+          <div class="val" id="fileName"></div>
+        </div>
+        <div class="list">
+          <div class="label">支付人姓名：</div>
+          <div class="val" id="userName"></div>
+        </div>
+        <div class="list">
+          <div class="label">公司/大学/机构名称：</div>
+          <div class="val" id="orgName"></div>
+        </div>
+        <div class="list">
+          <div class="label">邮箱地址：</div>
+          <div class="val" id="email"></div>
+        </div>
+       </div>
+       <a href="./pTable.html" class="back_btn">返回产品页</a>
+    </div>
+    
     ##include("../others/footer.html")
     <script>
+      getPay();
+      setInterval(() => {
+        getPay();
+      }, 1000);
+      function getOrderInfo(){
+         $.ajax({
+          url: "/api/order/pre",
+          dataType: "json",
+          data: params,
+          type: 'post',
+          success: function (res) {
+
+          }
+         });
+      }
+      function getPay(){
+        console.log(1);return
+        $.ajax({
+          url: "/api/order/pre",
+          dataType: "json",
+          data: params,
+          type: 'post',
+          success: function (res) {
+
+          }
+        });
+      }
     </script>
   </body>
 

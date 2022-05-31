@@ -168,6 +168,8 @@ function submitInfo(){
                 domPop.fadeIn();
             }
         });
+    }else{
+        alert('请填完所有内容')
     }
 }
 //去支付
