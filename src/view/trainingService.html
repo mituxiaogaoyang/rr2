@@ -22,17 +22,17 @@
                 <div class="lists" id="content">
                     <div class="list active">
                         <div class="title">培训通知</div>
-                        <div class="meeting_lists">
-                            <div class="item"><a href="./newsDetail.html" class="new">联系赞助-接洽方式</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">夯实大国粮仓根基</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                        <div class="meeting_lists" id="trainLists">
+                            暂无内容
                         </div>
-                        
+                        <div class="M-box11" id="pagerBox"></div>
+                        <script type="text/x-jsrender" id="tmplTrain">
+                            {{for items}}
+                            <div class="item">
+                                <a href="./newsDetail.html?type=notice&id={{:id}}" class="new">{{:title}}</a>
+                            </div>
+                            {{/for}}
+                        </script>
                     </div>
                     <div class="list">
                         <div class="title">服务内容</div>
@@ -44,28 +44,22 @@
                         <div class="content" id="adv">优势与特色</div>
                         
                     </div>
-                    <div class="list">
-                        <div class="title">联系赞助</div>
-                        <div class="content" id="sponsor">联系赞助</div>
-                        
-                    </div>
-                    <div class="list">
-                        <div class="title">接洽方式</div>
-                        <div class="content" id="contact">接洽方式</div>
-                       
-                    </div>
                 </div>
                 
             </div>
         </div>
         ##include("../others/footer.html")
-        <script type="module" src="../js/inRuirui.js"></script>
+        <script src="../js/inRuirui.js"></script>
+        <script src="../js/jquery.pagination.js"></script>
         <script>
-            getData('/api/training/advantage/feature/get',"#adv");
-            getData('/api/training/contact/method/get',"#contact");
-            getData('/api/training/contact/sponsor/get',"#sponsor");
-            getData('/api/training/notice/get',"#notice");
-            getData('/api/training/service/content/get',"#contentService");
+            var pageSize = 10;
+            getList("/api/train/notice/query", "#tmplTrain", "#trainLists", 1, pageSize, totalCount => initPager(
+                totalCount,
+                $('#pagerBox'), pageSize, obj => pageselectCallback(obj,
+                    "/api/train/notice/query", "#tmplTrain", "#trainLists", pageSize)), true)
+            getData("/api/train/service/content/get", "#contentService"); //服务内容
+            getData("/api/train/advantage/feature/get", "#adv"); //会议承接
+            //
         </script>
     </body>
 </html>

@@ -22,3 +22,32 @@ function getData(url,id){
         }
     });
 }
+function getList(url,domTmp, domList, page, pageSize,callback,isFirst) {
+    $.ajax({ //知识产权
+        url: url + "?page="+page+"&pageSize="+pageSize,
+        dataType: "json",
+        type: 'get',
+        success: function (res) {
+            if (res.page === 1 && res.totalCount && isFirst) {
+                callback(res.totalCount);
+            }
+            if (res.totalCount){
+                var html = $(domTmp).render(res);
+                $(domList).html(html);
+            }
+            
+        }
+    });
+}
+function initPager(totalCount,dom, pageSize, callback) {
+    dom.pagination({
+        totalData: totalCount,
+        showData: pageSize,
+        coping: true,
+        callback: callback,
+    })
+}
+function pageselectCallback(obj, url, domTmp, domList, pageSize) {
+    var page = obj.getCurrent();
+    getList(url, domTmp, domList, page, pageSize);
+}

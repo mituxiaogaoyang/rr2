@@ -40,10 +40,11 @@
 </div>
 <script src="../js/zepto.js"></script>
 <script src="../js/public.js"></script>
+<script src="../js/jsrender.min.js"></script>
 <script>
 const types = [3 ,4 ,5];//其他软件3 国外软件4 其他产品5
 types.forEach(item =>{
-    $.ajax({//公司介绍
+    $.ajax({
         url:"/api/product/query?type="+item,
         dataType: "json",
         type: 'get',

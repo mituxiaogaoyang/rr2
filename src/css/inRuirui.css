@@ -169,6 +169,22 @@ input:focus, input:hover{
     background-color: #f90;
     margin:16px 0;
 }  
+.M-box11 {
+    text-align: center;
+    margin: 26px 0;
+}
+.M-box11 a {
+    padding: 5px 12px;
+    box-shadow: 0 0 3px #ccc;
+    margin: 0 6px;
+}
+
+.M-box11 span.active {
+    background-color: rgba(36, 112, 184, 1);
+    padding: 5px 12px;
+    margin: 0 6px;
+    color: #fff;
+}
 @media screen and (max-width: 768px) {
     .img_banner{
         min-height:150px;

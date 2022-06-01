@@ -22,17 +22,17 @@
                 <div class="lists" id="content">
                     <div class="list active">
                         <div class="title">会议通知</div>
-                        <div class="meeting_lists">
-                            <div class="item"><a href="./newsDetail.html" class="new">联系赞助-接洽方式</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">夯实大国粮仓根基</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                        <div class="meeting_lists" id="meetingLists">
+                            暂无内容
                         </div>
-                        
+                        <div class="M-box11" id="pagerBox"></div>
+                        <script type="text/x-jsrender" id="tmplMeet">
+                            {{for items}}
+                            <div class="item">
+                                <a href="./newsDetail.html?type=notice&id={{:id}}" class="new">{{:title}}</a>
+                            </div>
+                            {{/for}}
+                        </script>
                     </div>
                     <div class="list">
                         <div class="title">会议承接</div>
@@ -44,28 +44,21 @@
                         <div class="content" id="adv">优势与特色</div>
                         
                     </div>
-                    <div class="list">
-                        <div class="title">联系赞助</div>
-                        <div class="content" id="sponsor"> </div>
-                    </div>
-                    <div class="list">
-                        <div class="title">接洽方式</div>
-                        <div class="content" id="contact">接洽方式</div>
-                       
-                    </div>
                 </div>
                 
             </div>
         </div>
         ##include("../others/footer.html")
-        <script src="../js/zepto.js"></script>
-        <script type="module" src="../js/inRuirui.js"></script>
+        <script  src="../js/inRuirui.js"></script>
+        <script src="../js/jquery.pagination.js"></script>
         <script>
-            getData('/api/metting/advantage/feature/get',"#adv");
-            getData('/api/metting/contact/method/get',"#contact");
-            getData('/api/metting/contact/sponsor/get',"#sponsor");
-            getData('/api/metting/notice/get',"#notice");
-            getData('/api/metting/undertake/metting/get',"#undertake");
+            var pageSize =10;
+            getList("/api/meeting/notice/query","#tmplMeet","#meetingLists",1,pageSize,totalCount =>initPager(totalCount,
+            $('#pagerBox'),pageSize,obj =>pageselectCallback(obj,
+            "/api/meeting/notice/query","#tmplMeet","#meetingLists",pageSize)),true)
+            getData("/api/meeting/undertake/metting/get","#undertake");//会议承接
+            getData("/api/meeting/advantage/feature/get","#adv");//会议承接
+            //
         </script>
     </body>
 </html>

@@ -28,7 +28,7 @@ function getData(url,ids){
     }else{
         url2 = url;
     }
-    $.ajax({//知识产权
+    $.ajax({
         url: url2,
         dataType: "json",
         type: 'get',
