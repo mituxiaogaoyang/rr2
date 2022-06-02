@@ -23,19 +23,29 @@
         ##include("../others/footer.html")
         <script src="../js/qs.js"></script>
         <script>
-            var id = location.search.split('=')[1];
-            const query = qs.parse(window.location.search.split("?")[1]);
+            var query = Qs.parse(window.location.search.split("?")[1]);
             console.log(query);
-            //var html = $("#tmplNews").render(newDetail);
-            $("#newsDetail").html(html);
-            
-            //end
-            if(Number(id)){
+            var type = query.type;
+            var id = query.id;
+            var url = '/api';
+            if(type == 'meeting'){
+                url = '/api/meeting/notice/get?id=';
+            }else if (type == 'train') {
+                url = '/api/train/notice/get?id=';
+            }else if (type == 'tec') {
+            url = '/api/tec/get?id=';
+            }else if (type == 'case') {
+            url = '/api/success/case/get?id=';
+            }else{
+                url = '/api/news/get?id=';
+            }
+            getDetail(url,id);
+            function getDetail(url,id){
                 $.ajax({//
-                    url:"/api/news/get?id="+Number(id),
+                    url: url+ Number(id),
                     dataType: "json",
                     type: 'get',
-                    success: function(res){
+                    success: function (res) {
                         res.data.date = formatDate(res.data.createTime)
                         var html = $("#tmplNews").render(res.data);
                         $("#newsDetail").html(html);

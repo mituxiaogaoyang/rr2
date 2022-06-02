@@ -185,6 +185,41 @@ input:focus, input:hover{
     margin: 0 6px;
     color: #fff;
 }
+.window-mask {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .3;
+    z-index: 100;
+    display: none;
+    /* nav zindex-99 */
+}
+.dialog-box {
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    border: 0;
+    padding: 24px;
+    color: #7f7f7f;
+    -moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+    -o-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    -ms-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 20%);
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 6px;
+    width: 500px;
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -250px;
+    top: 200px;
+    display: none;
+}
 @media screen and (max-width: 768px) {
     .img_banner{
         min-height:150px;

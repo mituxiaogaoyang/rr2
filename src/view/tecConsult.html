@@ -22,34 +22,41 @@
                 <div class="lists" id="content">
                     <div class="list active">
                         <div class="title">国际知名专家及服务介绍</div>
-                        <div class="meeting_lists">
-                            <div class="item"><a href="./newsDetail.html" class="new">联系赞助-接洽方式</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">夯实大国粮仓根基</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                        <div class="meeting_lists" id="expertLists">
+                        
                         </div>
-
+                        <div class="M-box11" id="pagerBox"></div>
+                        <script type="text/x-jsrender" id="tmplExpert">
+                            {{for items}}
+                            <div class="item">
+                                <a href="./newsDetail.html?type=tec&id={{:id}}" class="new">{{:title}}</a>
+                            </div>
+                            {{/for}}
+                        </script>
                     </div>
                     <div class="list">
                         <div class="title">成功案例</div>
-                        <div class="meeting_lists">
-                            <div class="item"><a href="./newsDetail.html" class="new">联系赞助-接洽方式</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">夯实大国粮仓根基</a></div>
-                            <div class="item"><a href="./newsDetail.html" class="new">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">俄乌冲突一个月 美国这个“战争贩子”仍在火上浇油</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
-                            <div class="item"><a href="./newsDetail.html">防疫保供稳物价 各地聚力“惠民生”</a></div>
+                        <div class="meeting_lists" id="casetLists">
+                            
                         </div>
-                        
+                        <div class="M-box11" id="pager2Box"></div>
+                        <script type="text/x-jsrender" id="tmplCase">
+                            {{for items}}
+                            <div class="item">
+                                <a href="./newsDetail.html?type=case&id={{:id}}" class="new">{{:title}}</a>
+                            </div>
+                            {{/for}}
+                        </script>
                     </div>
                     <div class="list">
                         <div class="title">科技咨询窗口</div>
+                        
+                        
+                    </div>
+                </div>
+                <div id="window-mask" class="window-mask"></div>
+                <div class="dialog zf-dialog dialog-box" title="" id="userInfo">
+                    <div class="userinfo_box">
                         <div class="form_box" id="contentService">
                             <input type="text" placeholder="您所在的公司/大学/机构名称">
                             <input type="text" placeholder="您的职称？">
@@ -59,20 +66,27 @@
                             <textarea placeholder="问题描述"></textarea>
                             <div class="btn_submit">提交</div>
                         </div>
-                        
                     </div>
+                    <div class="dialog-close" id="xPop"></div>
                 </div>
-                
             </div>
         </div>
         ##include("../others/footer.html")
-        <script type="module" src="../js/inRuirui.js"></script>
+        <script  src="../js/inRuirui.js"></script>
+        <script src="../js/jquery.pagination.js"></script>
         <script>
-            getData('/api/training/advantage/feature/get',"#adv");
-            getData('/api/training/contact/method/get',"#contact");
-            getData('/api/training/contact/sponsor/get',"#sponsor");
-            getData('/api/training/notice/get',"#notice");
-            getData('/api/training/service/content/get',"#contentService");
+            var pageSize = 10;
+            //专家服务列表
+            getList("/api/tec/query", "#tmplExpert", "#expertLists", 1, pageSize, totalCount => initPager(
+                totalCount,
+                $('#pagerBox'), pageSize, obj => pageselectCallback(obj,
+                    "/api/tec/query", "#tmplExpert", "#expertLists", pageSize)), true)
+            //成功案例列表
+            getList("/api/success/case/query", "#tmplCase", "#casetLists", 1, pageSize, totalCount => initPager(
+                totalCount,
+                $('#pager2Box'), pageSize, obj => pageselectCallback(obj,
+                    "/api/success/case/query", "#tmplCase", "#casetLists", pageSize)), true)
+            //
         </script>
     </body>
 </html>
