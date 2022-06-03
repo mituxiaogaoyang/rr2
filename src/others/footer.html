@@ -51,9 +51,15 @@ types.forEach(item =>{
         success: function(res){
             var lists =res.data;
             const domP = $('#type'+item)
-            lists.forEach(item =>{
-                var $link=$('<a href="./app_product.html?id='+item.id+'">'+item.name+'</a>');
-                domP.append($link);
+            lists.forEach(list =>{
+                if(item ===5){
+                    var $link=$('<dd><a href="./app_product.html?id='+list.id+'">'+list.name+'</a></dd>');
+                    domP.append($link);
+                }else{
+                    var $link=$('<a href="./app_product.html?id='+list.id+'">'+list.name+'</a>');
+                    domP.append($link);
+                }
+                
             })
         }
     });

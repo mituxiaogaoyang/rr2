@@ -114,9 +114,9 @@
     width:100%;
 }
 .form_box{
-
+    margin:10px 25px;
 }
-input{
+input,select{
     width: 360px;
     height: 32px;
     line-height: 1.5;
@@ -129,6 +129,9 @@ input{
     background-image: none;
     outline: none;
     margin:10px 0;
+}
+option{
+    height: 30px;
 }
 textarea{
     display: block;
@@ -168,6 +171,7 @@ input:focus, input:hover{
     border-radius: 6px;
     background-color: #f90;
     margin:16px 0;
+    cursor: pointer;
 }  
 .M-box11 {
     text-align: center;
@@ -219,6 +223,16 @@ input:focus, input:hover{
     margin-left: -250px;
     top: 200px;
     display: none;
+}
+.dialog-close {
+    background-image:url(../image/xx.png) ;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
 }
 @media screen and (max-width: 768px) {
     .img_banner{
@@ -280,5 +294,19 @@ input:focus, input:hover{
     }
     .core_contact .list .label {
         width: 70px;
+    }
+    .dialog-box {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+    input,select{
+        width: 90%;
+    }
+    textarea{
+        width: 90%;
+    }
+    .btn_submit{
+        width: 90%;
     }
 }

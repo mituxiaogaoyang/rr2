@@ -2,6 +2,8 @@
 var tab_title = $('#tabTitle .list');
 var content = $('#content .list');
 var tab1, tab2, tab3, tab4;
+var year = new Date().getFullYear();
+var yearTime = new Date(year+'-01-01').getTime();
 tab_title.click(function(){    
     if(!$(this).hasClass('active')){
         tab_title.removeClass('active');
@@ -28,6 +30,12 @@ function getList(url,domTmp, domList, page, pageSize,callback,isFirst) {
         dataType: "json",
         type: 'get',
         success: function (res) {
+            res.items.forEach(item =>{
+                if(item.createTime && item.createTime > yearTime){
+                    item.className = 'new';
+                }
+                
+            })
             if (res.page === 1 && res.totalCount && isFirst) {
                 callback(res.totalCount);
             }

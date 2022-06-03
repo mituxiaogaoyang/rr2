@@ -87,12 +87,17 @@ img{
     background-color: rgba(255,255,255,.95);
     display: none;
     text-align: center;
-    padding:6px 0 12px;
+    padding:6px 0;
     font-size:13px;
 }
+.header .navs .list .down span{
+    color:#999;
+    line-height: 25px;
+    margin-top:5px;
+}
 .header .navs .list .down2{
-    left:-36px;
-    width:210px;
+    left:-96px;
+    width:350px;
 }
 .header .navs .list .down3 {
     left: -76px;
@@ -100,7 +105,12 @@ img{
 }
 .header .navs .list .down a{
     display: block;
-    line-height: 36px;
+    line-height: 30px;
+    margin: 3px 0;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .header .navs .list2:hover .down{
     display: block;
@@ -125,30 +135,17 @@ img{
     font-size: 13px;
     width:75px;
 }
-.header .navs .list .down .content dl dd .lists3_box{
-    position: absolute;
-    top:0;
-    right:0;
-    width:118px;
-    background-color: #fff;
-    height: 206px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-bottom: 12px;
-    box-sizing: border-box;
-    display: none;
-}
+
 .header .navs .list .down .content dl dd .lists3_box a{
     max-width: 116px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     white-space: nowrap;
+    line-height: 24px;
+    margin: 0px;
 }
-.header .navs .list .down .content dl dd:hover .lists3_box {
-    display: flex;
-}
+
 .footer{
     background-color: rgba(39, 43, 59, .8);
     position: relative;
@@ -295,6 +292,7 @@ background-color: #f1f1f1;
         top: 0;
         left: 0;
         width: 100%;
+        overflow-y: auto;;
     }
     .x_nav {
         position: absolute;

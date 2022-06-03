@@ -35,15 +35,15 @@ $('#newsLists').on('mouseenter','.list',function(){
 });
 
 //start
-var html2 = $("#tmplNews2").render([]);
-console.log(html2);
-$("#newsLists").html(html2);
 $.ajax({ //新闻
-    url:"/api/news/query?page=1&pageSize=5",
+    url:"/api/news/query?page=1&pageSize=6",
     dataType: "json",
     type: 'get',
     success: function(res){
         //var html = $("#tmplNews").render(res);
+        res.items.forEach(item =>{
+            item.createTime = formatDate(item.createTime);
+        })
         var html2 = $("#tmplNews2").render(res);
         //$("#newsImgs").html(html);
         //$('#newsImgs .list').first().addClass('inside');
@@ -51,7 +51,16 @@ $.ajax({ //新闻
         $("#newsLists").html(html2);
     }
 });
-
+function formatDate(now) { 
+    now = new Date(now);
+    var year=now.getFullYear();  //取得4位数的年份
+    var month=now.getMonth()+1;  //取得日期中的月份，其中0表示1月，11表示12月
+    var date=now.getDate();      //返回日期月份中的天数（1到31）
+    // var hour=now.getHours();     //返回日期中的小时数（0到23）
+    // var minute=now.getMinutes(); //返回日期中的分钟数（0到59）
+    // var second=now.getSeconds(); //返回日期中的秒数（0到59）
+    return year+"-"+month+"-"+date+" "; 
+}
 $.ajax({//公司介绍
     url:"/api/company/info",
     dataType: "json",

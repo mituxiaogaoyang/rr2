@@ -46,7 +46,7 @@
                     dataType: "json",
                     type: 'get',
                     success: function (res) {
-                        res.data.date = formatDate(res.data.createTime)
+                        res.data.date = res.data.createTime && formatDate(res.data.createTime)
                         var html = $("#tmplNews").render(res.data);
                         $("#newsDetail").html(html);
                     }

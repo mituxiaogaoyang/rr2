@@ -396,3 +396,51 @@ input:hover {
 .userinfo_box .dialog-title {
     text-align: center;
 }
+@media screen and (max-width: 768px) {
+    .file_page{
+        width:100%;
+        margin:80px 0;
+        display:block;
+    }
+    .pTable{
+        width:100%;
+        border:1px solid #f0f0f0;
+        padding:30px 0;
+    }
+    .dialog-box {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+    input,select{
+        width: 90%;
+    }
+    textarea{
+        width: 90%;
+    }
+    .btn_submit{
+        width: 90%;
+    }
+    #table {
+        width: 630px;
+    }
+    .element {
+        width: 35px;
+        height: 35px;
+    }
+    .element .symbol {
+        line-height: 52px;
+        font-size: 120%;
+        font-weight: 300;
+    }
+    #el13, #el5{
+        margin-left:350px;
+    }
+    #el2{
+        margin-left:560px;
+    }
+    #table-lanthanoids,
+    #table-actinoids {
+        width: 575px;
+    }
+}
