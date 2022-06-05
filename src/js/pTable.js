@@ -129,9 +129,15 @@ $('body').on('click', '.element', function(e) {
 const domMask = $('#window-mask');
 const domPop = $('#upgrade-dlg');//购买弹框
 const domInfo = $('#userInfo'); //用户信息弹框
-let downloadId, orderCode;
+let downloadId, orderCode, timer;
+var listsId = [];
 function download(id){
-    downloadId = id;
+    if(id){
+        downloadId = id;
+    }else{
+        downloadId = listsId.join(',');
+    }
+    console.log(downloadId)
     domMask.fadeIn();
     domInfo.fadeIn();
 }
@@ -163,6 +169,7 @@ function submitInfo(){
             type: 'post',
             success: function (res) {
                 orderCode = res.data;
+                localStorage.setItem('orderCode',orderCode);
                 domPop.fadeIn();
                 domInfo.fadeOut();
                 domPop.fadeIn();
@@ -173,13 +180,13 @@ function submitInfo(){
     }
 }
 //去支付
-const aliPaySite = "http://112.126.61.9:8077/tpay/index"; //http://112.126.61.9:8077/tpay/pay
+var payType;
 $('#payBtn').click(function(){
-    const domCurrent = $('.dlg-item').find('.ac'); //orderCode
+    const domCurrent = $('.dlg-item').find('.ac');
     const payM = domCurrent.hasClass('alipay')?'ali':'wechat'; //支付选择
     const u = navigator.userAgent, app = navigator.appVersion;
     const isMobile = !!u.match(/AppleWebKit.*Mobile.*/);
-    var payType;
+    
     if (domCurrent.hasClass('alipay')){
         if (isMobile) payType = 2;
         else payType = 1;
@@ -190,7 +197,7 @@ $('#payBtn').click(function(){
        $('#forPubPop').fadeIn();
        return;
     }
-
+    console.log('支付'+orderCode)
     var params = {
         orderCode: orderCode,
         payType: payType, //1-ali-pc  2-ali-moblie  3-wechat-pc 4-wechat-mobile
@@ -207,48 +214,71 @@ $('#payBtn').click(function(){
                 document.body.appendChild(div);
                 //document.forms[0].acceptCharset = 'GBK'; //保持与支付宝默认编码格式一致，如果不一致将会出现：调试错误，请回到请求来源地，重新发起请求，错误代码 invalid-signature 错误原因: 验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配
                 document.forms[0].submit();
+            }else if (payType===3){
+                $("#payimg").html('');
+                $("#qrBox").fadeIn();
+                new QRCode($('#payimg')[0], {
+                    text: resp.data,
+                    width: 170,
+                    height: 170,
+                })
+                timer = setInterval(() => {
+                    queryOrderPay();
+                }, 1000);
+            }else if (payType===2){
+                const div = document.createElement('formdiv');
+                div.innerHTML = resp.data;
+                document.body.appendChild(div);
+                document.forms[0].setAttribute('target', '_self');
+                document.forms[0].submit();
+                div.remove();
+            }else if (payType===4){
+                window.open(resp.data,'_self')
             }
             
         }
     });return
-    if (domCurrent.hasClass('wechat')){
-        $.ajax({
-            url: "/api/element/query/get?elementCodes=",
-            dataType: "json",
-            type: 'get',
-            success: function (res) {
-                $("#qrBox").fadeIn();
-                new QRCode($('#payimg')[0], {
-                    text: 'https: //www.baidu.com/',
-                    width: 170,
-                    height: 170,
-                })
-                setInterval(() => {
-                    queryOrderPay();
-                }, 1000);
-            }
-        });
-    } else if (domCurrent.hasClass('alipay')){
-        //window.location.href = aliPaySite;
-    }else{
-        $('#forPubPop').fadeIn();
-    }
 
 })
 $('.dialog-close').click(function () {
     $(this).parent().fadeOut();
+    domMask.fadeOut();
+    if($(this).hasClass('wx')){
+        clearInterval(timer);
+    }
 })
 function queryOrderPay(){
     $.ajax({
-        url: "/api/element/query/get?elementCodes=",
+        url: "/api/order/get?orderCode="+orderCode,
         dataType: "json",
-        type: 'post',
+        type: 'get',
         success: function (res) {
-            if(res.isPay){
-                console.log('已支付')
+            
+            if(res.data.status){
+                clearInterval(timer);
+                if (payType===3){//wx-pc
+                    const origin = window.location.origin;
+                    window.location.href=origin +"/orderResult.html";
+                }
+                //alert('已支付')
             }
         }
     });
+}
+
+function checkList(eve,id){ 
+    var bool = $(eve).is(':checked');
+    if(bool){
+        listsId.push(id);
+    }else{
+        listsId = listsId.filter(item => item !== id);
+    }
+    if(listsId.length){
+        $('#downBtn').fadeIn();
+    }else{
+        $('#downBtn').fadeOut();
+    }
+    
 }
 
 

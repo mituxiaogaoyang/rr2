@@ -26,11 +26,12 @@
                             暂无内容
                         </div>
                         <div class="M-box11" id="pagerBox"></div>
+                        
                         <script type="text/x-jsrender" id="tmplMeet">
                             {{for items}}
                             <div class="item">
                                 <a href="./newsDetail.html?type=meeting&id={{:id}}" class="{{:className}}">{{:title}}</a>
-                   
+                                <div class="time">{{:time}}</div>
                             </div>
                             {{/for}}
                         </script>

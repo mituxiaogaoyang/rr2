@@ -61,15 +61,3 @@ function formatDate(now) {
     // var second=now.getSeconds(); //返回日期中的秒数（0到59）
     return year+"-"+month+"-"+date+" "; 
 }
-$.ajax({//公司介绍
-    url:"/api/company/info",
-    dataType: "json",
-    type: 'get',
-    success: function(res){
-        var data =res.data;
-        $("#oneWord").text(data.introduce);
-        $("#productWord").text(data.product);
-        $("#serviceWord").text(data.service);
-        $("#bannerImg").attr('src',data.guidePic);
-    }
-});

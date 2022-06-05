@@ -62,9 +62,23 @@
 }
 .meeting_lists .item{
     margin:12px 0;
-    padding:8px 0;
+    padding:4px 8px;
     border-bottom: 1px dashed #ccc;
     color:#666;
+    display: flex;
+    justify-content: space-between;
+}
+.meeting_lists .item a{
+    max-width: 500px;
+    padding-right: 25px;
+    padding-top:5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+.meeting_lists .item .time{
+    font-size: 12px;
 }
 .meeting_lists .item .new{
     position: relative;
@@ -73,8 +87,8 @@
 .meeting_lists .item .new::after{
     position: absolute;
     content: 'new';
-    right:-24px;
-    top:-5px;
+    right:0;
+    top:0px;
     background-color: #FF455B;
     padding:0 4px 3px;
     line-height: 1;

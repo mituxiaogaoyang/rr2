@@ -6,7 +6,7 @@
 .pTable{
     width:850px;
     border:1px solid #f0f0f0;
-    padding:30px 0;
+    padding:70px 0;
 }
 .right_part{
     flex-grow: 1;
@@ -32,8 +32,9 @@
 .match_box{
     border:1px solid #f0f0f0;
     padding:12px;
-    height:355px;
+    height:435px;
     overflow-y: auto;
+    position: relative;
 }
 .match_box .file_lists{
     padding:10px 0;
@@ -45,19 +46,32 @@
 .match_box .file_list span.name{
     color: rgba(36,112,184,.8);
     display: inline-block;
-    max-width: 200px;
+    max-width: 170px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     white-space: nowrap;
     vertical-align: middle;
+    font-size: 13px;
 }
 .match_box .file_list .preview_btn{
     font-size: 12px;
     margin:0 5px 0 12px;
     vertical-align: middle;
 }
-.match_box .file_list .down_btn {
+.match_box .down_line{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    height: 32px;
+    line-height: 32px;
+    background-color: #f0f0f0;
+    padding:0 5px;
+    text-align: center;
+    display: none;
+}
+.match_box  .down_btn {
     font-size: 12px;
     vertical-align: middle;
     cursor: pointer;
@@ -67,7 +81,7 @@
 }
 .wx_qr_box .qr_content {
     text-align:center;
-    margin-top:2px;
+    margin:10px 0;
 }
 .window-mask{
     background: #000;
@@ -327,7 +341,7 @@
 .transp {
     opacity: 0.25;
 }
-input {
+input[type='text'] {
     width: 360px;
     height: 32px;
     line-height: 1.5;
@@ -341,7 +355,9 @@ input {
     outline: none;
     margin: 10px 0;
 }
-
+input[type='checkbox']{
+    vertical-align: middle;
+}
 textarea {
     display: block;
     width: 360px;
@@ -404,15 +420,15 @@ input:hover {
     }
     .pTable{
         width:100%;
-        border:1px solid #f0f0f0;
-        padding:30px 0;
+        border:0px solid #f0f0f0;
+        padding:50px 0;
     }
     .dialog-box {
         width: 100%;
         left: 0;
         margin-left: 0;
     }
-    input,select{
+    input[type='text'],select{
         width: 90%;
     }
     textarea{
@@ -422,25 +438,25 @@ input:hover {
         width: 90%;
     }
     #table {
-        width: 630px;
+        width: 576px;
     }
     .element {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
     .element .symbol {
-        line-height: 52px;
+        line-height: 45px;
         font-size: 120%;
         font-weight: 300;
     }
     #el13, #el5{
-        margin-left:350px;
+        margin-left:320px;
     }
     #el2{
-        margin-left:560px;
+        margin-left:512px;
     }
     #table-lanthanoids,
     #table-actinoids {
-        width: 575px;
+        width: 545px;
     }
 }

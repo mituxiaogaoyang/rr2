@@ -11,7 +11,7 @@
         width:600px;
       }
       .result_box{
-        
+        display: none;
       }
       .win{
         display: flex;
@@ -57,6 +57,7 @@
         text-align: center;
         border-radius: 6px;
         cursor: pointer;
+        display: none;
       }
       .back_btn{
         width:150px;
@@ -80,23 +81,31 @@
   <body>
     ##include("../others/header.html")
     <div class="content_core">
-       <div class="result_checking">结果查询中...</div>
-       <div class="result_box">
+       <!-- <div class="result_checking">结果查询中...</div> -->
+       <div class="result_box" id="resultBox">
          <div class="win">
            <img src="./image/win.png" alt="">
            <span class="result_word">支付成功！</span>
          </div>
-         <div class="win">
+         <!-- <div class="win">
            <img src="./image/fail.png" alt="">
            <span class="result_word">支付失败！</span>
-         </div>
+         </div> -->
        </div>
        <div class="file_box">
         <div class="title">订单信息</div>
-        <div class="down_btn">文件下载</div>
+        <div class="down_btn" id="btnDown">文件下载</div>
         <div class="list">
           <div class="label">订单号：</div>
-          <div class="val" id="orderCode">2134134</div>
+          <div class="val" id="orderCode"></div>
+        </div>
+        <div class="list">
+          <div class="label">支付状态：</div>
+          <div class="val" id="status"></div>
+        </div>
+        <div class="list">
+          <div class="label">支付金额：</div>
+          <div class="val" id="price"></div>
         </div>
         <div class="list">
           <div class="label">文件名：</div>
@@ -120,32 +129,99 @@
     
     ##include("../others/footer.html")
     <script>
-      getPay();
-      setInterval(() => {
-        getPay();
-      }, 1000);
+      var timer;
+      var orderCode = localStorage.getItem('orderCode');
+      getOrderInfo();
+      
       function getOrderInfo(){
          $.ajax({
-          url: "/api/order/pre",
+          url: "/api/order/get?orderCode="+orderCode,
           dataType: "json",
-          data: params,
-          type: 'post',
+          type: 'get',
           success: function (res) {
-
+            res = res.data;
+            $('#orderCode').text(orderCode);
+            $('#fileName').text(res.title);
+            $('#userName').text(res.userName);
+            $('#orgName').text(res.companyAddress);
+            $('#email').text(res.email);
+            $('#status').text(res.statusStr);
+            $('#price').text(res.totalAmount+'元');
+            if(res.status){
+                  clearInterval(timer);
+                  $('#resultBox').fadeIn();
+                  $('#btnDown').fadeIn();
+              }else{
+                if(!timer){
+                  timer = setInterval(() => {
+                      queryOrderPay();
+                  }, 1000);
+                }
+                
+              }
           }
          });
       }
-      function getPay(){
-        console.log(1);return
+      function queryOrderPay(){
         $.ajax({
-          url: "/api/order/pre",
-          dataType: "json",
-          data: params,
-          type: 'post',
-          success: function (res) {
-
-          }
+            url: "/api/order/get?orderCode="+orderCode,
+            dataType: "json",
+            type: 'get',
+            success: function (res) {
+                if(res.data.status){
+                    clearInterval(timer);
+                }
+            }
         });
+      }
+      $('#btnDown').click(function(){
+        window.open("/api/file/download?orderCode="+orderCode, '_blank')
+        // $.ajax({
+        //     url: "/api/file/download?orderCode="+orderCode,
+        //     dataType: "json",
+        //     type: 'get',
+        //     xhrFields:{responseType: 'blob'},
+        //     success: function (res) {
+        //       debugger
+        //       console.log(12)
+        //       let elink = document.createElement('a');
+        //       //elink.download = downloadName;
+        //       elink.style.display = 'none';
+        //       let blob = new Blob([res]);
+        //       elink.href = URL.createObjectURL(blob);
+
+        //       document.body.appendChild(elink);
+        //       elink.click();
+        //       document.body.removeChild(elink);
+        //     }
+        // });
+      })
+      function download(url) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);    // 也可以使用POST方式，根据接口
+          //xhr.responseType = "blob";  // 返回类型blob
+          // 定义请求完成的处理函数，请求前也可以增加加载框/禁用下载按钮逻辑
+          xhr.onload = function () {
+              // 请求完成
+              if (this.status === 200) {
+                  // 返回200
+                  var blob = this.response;
+                  
+                  var reader = new FileReader();
+                  reader.readAsDataURL(blob);  // 转换为base64，可以直接放入a表情href
+                  reader.onload = function (e) {
+                      // 转换完成，创建一个a标签用于下载
+                      var a = document.createElement('a');
+                      //a.download = 'data.xlsx';
+                      a.href = e.target.result;
+                      // $("body").append(a);  // 修复firefox中无法触发click
+                      a.click();
+                      // $(a).remove();
+                  }
+              }
+          };
+          // 发送ajax请求
+          xhr.send()
       }
     </script>
   </body>

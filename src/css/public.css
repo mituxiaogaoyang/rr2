@@ -163,12 +163,14 @@ img{
 }
 .footer_center .follow_us {
     width: 280px;
-    border-left: 1px solid #999;
+    /* border-left: 1px solid #999; */
     padding-left:30px;
+    margin:10px auto;
+    text-align: center;
 }
 .footer_center .follow_us .code_pic{
     width:120px;
-    margin:15px 0 8px;
+    margin:15px auto 8px;
 }
 .footer_center .follow_us .info_logo{
     font-size: 12px;

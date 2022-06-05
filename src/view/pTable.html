@@ -9,6 +9,15 @@
     </head>
     <body>
         ##include("../others/header.html")
+        <script>
+            const u = navigator.userAgent, app = navigator.appVersion;
+            const isMobile = !!u.match(/AppleWebKit.*Mobile.*/);   
+            if(isMobile){
+                //document.write('<meta name="viewport" content="width=576, initial-scale=1.0"/>')
+                var mvp = document.getElementById('testViewport');
+                mvp.setAttribute('content','width=480');
+            }     
+        </script>
         <div class="file_page">
             <div class="pTable">
                 <div id="table" class="container_pTable"></div>
@@ -21,12 +30,16 @@
                     <div class="element_selected" id="selected"></div>
                 </div>
                 <div class="match_box">
-                    <div class="word">匹配到<span class="num" id="fileNum">0</span>个相关文件：</div>
+                    <div class="word" >匹配到<span class="num" id="fileNum">0</span>个相关文件：</div>
                     <div class="file_lists" id="fileList"> 
+                    </div>
+                    <div class="down_line" id="downBtn">
+                        <span class="btn_anchor down_btn" onclick="download()">下载</span>
                     </div>
                     <script type="text/x-jsrender" id="tmplFiles">
                         {{for data}}
-                            <div class="file_list" > 
+                            <div class="file_list" >
+                                <input type="checkbox" class="checkbox" onclick="checkList(this,{{:id}})" name="fileTitle">
                                 <span  class="name" title="{{:fileSourceName}}">{{:fileSourceName}}</span>
                                 <a class="preview_btn" href="{{:previewPic}}" target="_blank">预览</a>
                                 <span class="btn_anchor down_btn" onclick="download({{:id}})">下载(￥{{:price}})</span>
@@ -50,7 +63,7 @@
                 <h2 class="dialog-title">购买</h2>
                 <div class="dlg-content pay-form">
                     <div class="pay-form-label">文件价格</div>
-                    <div class="price_box">￥33</div>
+                    <div class="price_box"></div>
                     <div class="pay-form-label">支付方式</div>
                     <div class="dlg-item"  style="min-height:30px;">
                         <div tit="wxpay" class="price-paytype wechat ac">
@@ -81,7 +94,7 @@
                 <div class="dialog-close" id="xPop"></div>
             </div>
             <div class="wx_qr_box dialog-box" id="qrBox">
-                <div class="dialog-close" id="closeQr"></div>
+                <div class="dialog-close wx" id="closeQr"></div>
                 <div class="qr_content">
                     <div>微信扫码支付</div>
                     <div id="payimg" style="margin:10px 0px;width:170px;height:170px;margin:15px auto;"></div>

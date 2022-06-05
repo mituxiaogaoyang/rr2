@@ -57,6 +57,7 @@
                 <div id="window-mask" class="window-mask"></div>
                 <div class="dialog zf-dialog dialog-box" title="" id="userInfo">
                     <div class="userinfo_box">
+                        <div class="title">科技咨询</div>
                         <div class="form_box" id="contentService">
                             <input type="text" id="userName" placeholder="您的姓名">
                             <input type="text" id="userCompany" placeholder="您所在的公司/大学/机构名称">
@@ -102,6 +103,8 @@
             const userPositon = $('#userPositon');
             const userEmail = $('#userEmail');
             const desc = $('#desc');
+            domMask.fadeIn();
+            domInfo.fadeIn();
             btnConsult.click(() =>{
                 domMask.fadeIn();
                 domInfo.fadeIn();
