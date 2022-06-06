@@ -412,6 +412,42 @@ input:hover {
 .userinfo_box .dialog-title {
     text-align: center;
 }
+.pay-forpub-cell{
+
+}
+.pay-forpub-cell .step-bd .info-hd {
+    color: #222;
+    margin-bottom: 8px;
+    font-weight: 200;
+}
+.pay-forpub-cell .step-hd {
+    font-size: 16px;
+    color: #222;
+    line-height: 120%;
+    margin: 18px 0 10px;
+}
+.pay-forpub-cell .step-bd {
+    color: #333;
+    padding-left: 25px;
+    font-size: 13px;
+}
+.pay-forpub-cell .step-bd .info-tip {
+    color: #ce4844;
+    margin-top: 12px;
+}
+.step-bd-label {
+    width: 56px;
+    display: inline-block;
+    color: #666;
+}
+.step-bd-info {
+    color: #333;
+}
+.order-id {
+    font-size: 16px;
+    color: #304051;
+    font-weight: 700;
+}
 @media screen and (max-width: 768px) {
     .file_page{
         width:100%;

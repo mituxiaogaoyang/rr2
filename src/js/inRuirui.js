@@ -30,10 +30,13 @@ function getList(url,domTmp, domList, page, pageSize,callback,isFirst) {
         dataType: "json",
         type: 'get',
         success: function (res) {
-            res.items.forEach(item =>{
+            res.items.forEach((item, i) =>{
                 item.time = formatDate(item.createTime);
                 if(item.createTime && item.createTime > yearTime){
                     item.className = 'new';
+                }
+                if(page ==1 && i==0){
+                    item.isFirst = true;
                 }
                 
             })

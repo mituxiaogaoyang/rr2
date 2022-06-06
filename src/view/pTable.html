@@ -39,10 +39,11 @@
                     <script type="text/x-jsrender" id="tmplFiles">
                         {{for data}}
                             <div class="file_list" >
-                                <input type="checkbox" class="checkbox" onclick="checkList(this,{{:id}})" name="fileTitle">
+                                <input type="checkbox" class="checkbox" onclick="checkList(this,{{:id}},{{:price}})"
+                                    name="fileTitle">
                                 <span  class="name" title="{{:fileSourceName}}">{{:fileSourceName}}</span>
                                 <a class="preview_btn" href="{{:previewPic}}" target="_blank">预览</a>
-                                <span class="btn_anchor down_btn" onclick="download({{:id}})">下载(￥{{:price}})</span>
+                                <span class="btn_anchor down_btn" onclick="download({{:id}},{{:price}})">下载(￥{{:price}})</span>
                             </div>
                         {{/for}}
                     </script>
@@ -63,7 +64,7 @@
                 <h2 class="dialog-title">购买</h2>
                 <div class="dlg-content pay-form">
                     <div class="pay-form-label">文件价格</div>
-                    <div class="price_box"></div>
+                    <div class="price_box priceBox"></div>
                     <div class="pay-form-label">支付方式</div>
                     <div class="dlg-item"  style="min-height:30px;">
                         <div tit="wxpay" class="price-paytype wechat ac">
@@ -106,41 +107,43 @@
                 <div class="dialog-content cell-bd">
                     <div class="step-hd">1、已生成订单 &nbsp;&nbsp;&nbsp;&nbsp;<span class="order-name"
                             style="display: none;">61a746df1e08530229a2f99d － 购买ProcessOn个人版</span></div>
-                    <div class="step-bd">订单号：<span class="order-id">620c79816376897c8c74e527</span><span
-                            class="order-copy-btn" data-clipboard-action="copy"
-                            data-clipboard-target=".order-id">点此复制</span></div>
+                    <div class="step-bd">订单号：<span class="order-id orderCode"></span>
+                        <!-- <span class="order-copy-btn" data-clipboard-action="copy"
+                            data-clipboard-target=".order-id">点此复制</span> -->
+                    </div>
                     <div class="step-hd">2、线下汇款</div>
                     <div class="step-bd">
                         <div class="info-hd">汇款信息：</div>
                         <div>
                             <span class="step-bd-label">金&nbsp;&nbsp;&nbsp;&nbsp;额：</span>
-                            <span class="order-money step-bd-info">￥159.0</span>
+                            <span class="order-money step-bd-info priceBox" >￥0.1</span>
                         </div>
                         <div>
                             <span class="step-bd-label">开户名：</span>
-                            <span class="step-bd-info">北京大麦地信息技术有限公司</span>
+                            <span class="step-bd-info">长沙锐睿科技有限公司</span>
                         </div>
                         <div>
                             <span class="step-bd-label">开户行：</span>
-                            <span class="step-bd-info">招商银行股份有限公司北京上地支行</span>
+                            <span class="step-bd-info">长沙银行股份有限公司梅溪湖支行</span>
                         </div>
                         <div>
                             <span class="step-bd-label">账&nbsp;&nbsp;&nbsp;&nbsp;号：</span>
-                            <span class="step-bd-info">110914687710301</span>
+                            <span class="step-bd-info">810000259061000001</span>
                         </div>
                         <div>
                             <span class="step-bd-label">备&nbsp;&nbsp;&nbsp;&nbsp;注:</span>
-                            <span class="order-des-id step-bd-info">620c79816376897c8c74e527</span>
+                            <span class="order-des-id step-bd-info orderCode"></span>
                         </div>
-                        <div class="info-tip" style="font-size: 15px;">*汇款备注：打款时请务必填写此备注信息(点击上方复制订单号)</div>
+                        <div class="info-tip" style="font-size: 15px;">*汇款备注：打款时请务必填写此备注信息(复制上方订单号)</div>
                     </div>
                     <div class="step-hd">3、等待处理，完成订单</div>
-                    <div class="step-bd">汇款后，请尽快与我们联系，我们将及时为您处理，<br>如有任何疑问，请联系客服：<a
-                            href="tel:010-82796300">010-82796300</a> </div>
+                    <div class="step-bd">汇款后，请尽快与我们联系，我们将及时为您处理。
+                        <!-- <br>如有任何疑问，请联系客服：<a href="tel:010-82796300">010-82796300</a>  -->
+                    </div>
                 </div>
-                <div class="dialog-footer">
+                <!-- <div class="dialog-footer">
                     <div class="ui button primary footer-btn order-cancel-btn cl">取消订单</div>
-                </div>
+                </div> -->
                 <div class="dialog-close" id="closePub" style="display: block;"></div>
             </div>
         </div>

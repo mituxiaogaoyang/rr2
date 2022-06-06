@@ -10,9 +10,13 @@
         ##include("../others/header.html")
         <div class="core_news">
             <div class="news_detail" id="newsDetail">
-                <div class="title">橙风破浪，北斗开启全球时代！</div>
-                <div class="time">2020-05-06</div>
+                <div class="title"></div>
+                <div class="time">2020-06-06</div>
                 <div class="detail"></div>
+            </div>
+            <div class="sponsor" id="sponsorBox">
+                <div class="name">联系赞助-接洽方式</div>
+                <div class="sponsor_content" id="contentSponsor"></div>
             </div>
             <script type="text/x-jsrender" id="tmplNews">
                 <div class="title">{{:title}}</div>
@@ -30,8 +34,14 @@
             var url = '/api';
             if(type == 'meeting'){
                 url = '/api/meeting/notice/get?id=';
+                if(query.isFirst){
+                    getContactSponsor('meeting');
+                }
             }else if (type == 'train') {
                 url = '/api/train/notice/get?id=';
+                if(query.isFirst){
+                    getContactSponsor('train');
+                }
             }else if (type == 'tec') {
             url = '/api/tec/get?id=';
             }else if (type == 'case') {
@@ -49,6 +59,17 @@
                         res.data.date = res.data.createTime && formatDate(res.data.createTime)
                         var html = $("#tmplNews").render(res.data);
                         $("#newsDetail").html(html);
+                    }
+                });
+            }
+            function getContactSponsor(type){//meeting/contact/sponsor/get 
+                $("#sponsorBox").fadeIn();
+                $.ajax({//
+                    url: '/api/'+type+'/contact/sponsor/get',
+                    dataType: "json",
+                    type: 'get',
+                    success: function (res) {
+                        $("#contentSponsor").html( res.data.content);
                     }
                 });
             }

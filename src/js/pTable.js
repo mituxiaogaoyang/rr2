@@ -123,23 +123,26 @@ $('body').on('click', '.element', function(e) {
                 $("#fileList").html(html);
             }
         });
+    }else{
+        $("#fileList").html('');
     }
     
 });
-const domMask = $('#window-mask');
-const domPop = $('#upgrade-dlg');//购买弹框
-const domInfo = $('#userInfo'); //用户信息弹框
-let downloadId, orderCode, timer;
+var domMask = $('#window-mask');
+var domPop = $('#upgrade-dlg');//购买弹框
+var domInfo = $('#userInfo'); //用户信息弹框
+var downloadId, orderCode, timer, priceOrder=0;
 var listsId = [];
-function download(id){
+function download(id,price){
     if(id){
         downloadId = id;
+        priceOrder = price;
     }else{
         downloadId = listsId.join(',');
     }
-    console.log(downloadId)
     domMask.fadeIn();
     domInfo.fadeIn();
+    $(".priceBox").text('￥' + priceOrder);
 }
 $('#xPop').click(() =>{
     domMask.fadeOut();
@@ -152,9 +155,9 @@ $('.price-paytype').click(function(){
 })
 $('#infoSubBtn').click(submitInfo);
 function submitInfo(){
-    const userName = $('#userName').val();
-    const userCompany = $('#userCompany').val();
-    const userEmail = $('#userEmail').val();
+    var userName = $('#userName').val();
+    var userCompany = $('#userCompany').val();
+    var userEmail = $('#userEmail').val();
     if (userName && userCompany && userEmail ){
         var params = {
             userName: userName,
@@ -170,6 +173,7 @@ function submitInfo(){
             success: function (res) {
                 orderCode = res.data;
                 localStorage.setItem('orderCode',orderCode);
+                $('.orderCode').text(orderCode);
                 domPop.fadeIn();
                 domInfo.fadeOut();
                 domPop.fadeIn();
@@ -182,10 +186,10 @@ function submitInfo(){
 //去支付
 var payType;
 $('#payBtn').click(function(){
-    const domCurrent = $('.dlg-item').find('.ac');
-    const payM = domCurrent.hasClass('alipay')?'ali':'wechat'; //支付选择
-    const u = navigator.userAgent, app = navigator.appVersion;
-    const isMobile = !!u.match(/AppleWebKit.*Mobile.*/);
+    var domCurrent = $('.dlg-item').find('.ac');
+    var payM = domCurrent.hasClass('alipay')?'ali':'wechat'; //支付选择
+    var u = navigator.userAgent, app = navigator.appVersion;
+    var isMobile = !!u.match(/AppleWebKit.*Mobile.*/);
     
     if (domCurrent.hasClass('alipay')){
         if (isMobile) payType = 2;
@@ -209,7 +213,7 @@ $('#payBtn').click(function(){
         type: 'post',
         success: function (resp) {
             if (payType===1){
-                const div = document.createElement('divform');
+                var div = document.createElement('divform');
                 div.innerHTML = resp.data;
                 document.body.appendChild(div);
                 //document.forms[0].acceptCharset = 'GBK'; //保持与支付宝默认编码格式一致，如果不一致将会出现：调试错误，请回到请求来源地，重新发起请求，错误代码 invalid-signature 错误原因: 验签出错，建议检查签名字符串或签名私钥与应用公钥是否匹配
@@ -222,11 +226,11 @@ $('#payBtn').click(function(){
                     width: 170,
                     height: 170,
                 })
-                timer = setInterval(() => {
+                timer = setInterval(function() {
                     queryOrderPay();
                 }, 1000);
             }else if (payType===2){
-                const div = document.createElement('formdiv');
+                var div = document.createElement('formdiv');
                 div.innerHTML = resp.data;
                 document.body.appendChild(div);
                 document.forms[0].setAttribute('target', '_self');
@@ -257,7 +261,7 @@ function queryOrderPay(){
             if(res.data.status){
                 clearInterval(timer);
                 if (payType===3){//wx-pc
-                    const origin = window.location.origin;
+                    var origin = window.location.origin;
                     window.location.href=origin +"/orderResult.html";
                 }
                 //alert('已支付')
@@ -266,12 +270,14 @@ function queryOrderPay(){
     });
 }
 
-function checkList(eve,id){ 
+function checkList(eve,id,price){ 
     var bool = $(eve).is(':checked');
     if(bool){
         listsId.push(id);
+        priceOrder = priceOrder +price;
     }else{
         listsId = listsId.filter(item => item !== id);
+        priceOrder = priceOrder - price;
     }
     if(listsId.length){
         $('#downBtn').fadeIn();

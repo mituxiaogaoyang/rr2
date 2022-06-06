@@ -29,7 +29,8 @@
                         <script type="text/x-jsrender" id="tmplTrain">
                             {{for items}}
                             <div class="item">
-                                <a href="./newsDetail.html?type=train&id={{:id}}" class="{{:className}}">{{:title}}</a>
+                                <a href="./newsDetail.html?type=train&id={{:id}}&isFirst={{:isFirst}}"
+                                    class="{{:className}}">{{:title}}</a>
                             </div>
                             {{/for}}
                         </script>

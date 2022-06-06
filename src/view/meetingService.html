@@ -30,7 +30,8 @@
                         <script type="text/x-jsrender" id="tmplMeet">
                             {{for items}}
                             <div class="item">
-                                <a href="./newsDetail.html?type=meeting&id={{:id}}" class="{{:className}}">{{:title}}</a>
+                                <a href="./newsDetail.html?type=meeting&id={{:id}}&isFirst={{:isFirst}}"
+                                    class="{{:className}}">{{:title}}</a>
                                 <div class="time">{{:time}}</div>
                             </div>
                             {{/for}}
