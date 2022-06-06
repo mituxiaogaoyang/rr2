@@ -70,6 +70,7 @@
     padding:0 5px;
     text-align: center;
     display: none;
+    cursor: pointer;
 }
 .match_box  .down_btn {
     font-size: 12px;
