@@ -14,7 +14,11 @@
             <script type="text/x-jsrender" id="tmplBanner1">
                 {{for data}}
                 <div class="swiper-slide">
-                    <a href="{{:linkUrl}}" class="title"><img src="{{:picUrl}}" alt=""></a>
+                    {{if linkUrl }}
+                        <a href="{{:linkUrl}}" class="title"><img src="{{:picUrl}}" alt=""></a>
+                    {{else}}
+                        <div class="title"><img src="{{:picUrl}}" alt=""></div>
+                    {{/if}}
                 </div>
                 {{/for}}
             </script>
@@ -29,7 +33,11 @@
                     <script type="text/x-jsrender" id="tmplBanner2">
                     {{for data}}
                         <div class="swiper-slide">
+                            {{if linkUrl }}
                             <a href="{{:linkUrl}}" class="title"><img src="{{:picUrl}}" alt=""></a>
+                            {{else}}
+                            <div class="title"><img src="{{:picUrl}}" alt=""></div>
+                            {{/if}}
                         </div>
                     {{/for}}
                     </script>
