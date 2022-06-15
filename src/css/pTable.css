@@ -267,6 +267,7 @@
     background: -ms-linear-gradient(top left, #ef5350, #f44336);
     background: -o-linear-gradient(top left, #ef5350, #f44336);
     background: linear-gradient(top left, #ef5350, #f44336);
+    background: rgba(0, 126, 213, .4);
 }
 .element.alkaline {
     background: -webkit-linear-gradient(top left, #ff7043, #ff5722);
@@ -274,6 +275,7 @@
     background: -ms-linear-gradient(top left, #ff7043, #ff5722);
     background: -o-linear-gradient(top left, #ff7043, #ff5722);
     background: linear-gradient(top left, #ff7043, #ff5722);
+    background: #2440b3;
 }
 .element.transition {
     background: -webkit-linear-gradient(top left, #ff9800, #fb8c00);
@@ -281,6 +283,7 @@
     background: -ms-linear-gradient(top left, #ff9800, #fb8c00);
     background: -o-linear-gradient(top left, #ff9800, #fb8c00);
     background: linear-gradient(top left, #ff9800, #fb8c00);
+    background: rgba(0, 126, 213, 1);
 }
 .element.poor {
     background: -webkit-linear-gradient(top left, #66bb6a, #4caf50);
