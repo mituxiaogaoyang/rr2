@@ -100,6 +100,25 @@
 .news_detail img{
     width:auto;
 }
+.files_box{
+    margin:30px auto;
+    width:1000px;
+    border-top:1px dotted #999;
+    padding:15px 0;
+    display: none;
+}
+.files_box .file_word{
+    font-size:16px;
+    color:#000;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.files_box  a{
+    margin-top:12px;
+    display: inline-block;
+    color:#2370b8;
+    opacity: 0.8;
+}
 .sponsor{
     width:1000px;
     margin:40px auto 80px;

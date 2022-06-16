@@ -13,6 +13,13 @@
                 <div class="title"></div>
                 <div class="time">2020-06-06</div>
                 <div class="detail"></div>
+                
+            </div>
+            <div class="files_box" id="filesBox">
+                <div class="file_word">相关附件：</div>
+                <div class="files_anchors" id="anchorBox">
+                    
+                </div>
             </div>
             <div class="sponsor" id="sponsorBox">
                 <div class="name">联系赞助-接洽方式</div>
@@ -59,6 +66,16 @@
                         res.data.date = res.data.createTime && formatDate(res.data.createTime)
                         var html = $("#tmplNews").render(res.data);
                         $("#newsDetail").html(html);
+                        var anchors = res.data.attachmentList;
+                        if(anchors.length){
+                            $("#filesBox").fadeIn();
+                            var aa = '';
+                            anchors.forEach(list =>{
+                                aa = aa +"<div><a href="+list.path+" target='_blank'>"+list.name +"</a></div>"
+                                
+                            })
+                            $("#anchorBox").html(aa);
+                        }
                     }
                 });
             }
