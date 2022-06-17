@@ -89,8 +89,11 @@ $.getJSON('js/periodicTable.json', function(data) {
     }
     clearfix($('#table-actinoids'));
 });
-
+var listsId = [],priceOrder=0;
 $('body').on('click', '.element', function(e) {
+    listsId = [];
+    priceOrder = 0;
+    $("[name='checkbox']").attr("checked",'false');//全选 
     var _this = $(this);
     var wordsBox = $("#selected"), words;
     var element = _this.children('.symbol').text();
@@ -132,7 +135,7 @@ var domMask = $('#window-mask');
 var domPop = $('#upgrade-dlg');//购买弹框
 var domInfo = $('#userInfo'); //用户信息弹框
 var downloadId, orderCode, timer, priceOrder=0;
-var listsId = [];
+
 function download(id,price){
     if(id){
         downloadId = id;
@@ -142,12 +145,11 @@ function download(id,price){
     }
     domMask.fadeIn();
     domInfo.fadeIn();
-    $(".priceBox").text('￥' + priceOrder);
+    $(".priceBox").text('￥' + Number(priceOrder).toFixed(2));
 }
-$('#xPop').click(() =>{
+$('.xxPop').click(function() {
     domMask.fadeOut();
-    domPop.fadeOut();
-    domInfo.fadeOut();
+    $(this).parent().fadeOut();
 })
 $('.price-paytype').click(function(){
     $('.price-paytype').removeClass('ac');
@@ -244,9 +246,9 @@ $('#payBtn').click(function(){
     });return
 
 })
-$('.dialog-close').click(function () {
+$('.xPop').click(function () {
     $(this).parent().fadeOut();
-    domMask.fadeOut();
+    //domMask.fadeOut();
     if($(this).hasClass('wx')){
         clearInterval(timer);
     }

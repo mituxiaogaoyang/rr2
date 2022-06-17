@@ -59,9 +59,81 @@
                 </div>
             </div>
         </div>
-
+        <div class="dialog zf-dialog dialog-box" title="" id="userInfo">
+            <div class="userinfo_box">
+                <div class="title">科技咨询</div>
+                <div class="form_box" id="contentService">
+                    <input type="text" id="userName" placeholder="您的姓名">
+                    <input type="text" id="userCompany" placeholder="您所在的公司/大学/机构名称">
+                    <input type="text" id="userPositon"  placeholder="您的职称？">
+                    
+                    <input type="text" id="userEmail" placeholder="您的邮箱">
+                    <select name="" placeholder="咨询问题类别" id="slectBox">
+                    
+                    </select>
+                    <textarea id="desc" placeholder="问题描述"></textarea>
+                    <div class="btn_submit" id="submitForm">提交</div>
+                </div>
+            </div>
+            <div class="dialog-close" id="xPop"></div>
+        </div>
         ##include("../others/footer.html")
         <script src="../js/swiper-3.4.2.jquery.min.js"></script>
         <script  src="../js/index.js"></script>
+        <script>
+            const submitForm = $('#submitForm');//slectBox
+            const slectBox = $('#slectBox');//slectBox
+
+            const userName = $('#userName');
+            const userCompany = $('#userCompany');
+            const userPositon = $('#userPositon');
+            const userEmail = $('#userEmail');
+            const desc = $('#desc');
+
+            const domMask = $('#window-mask');
+            const domInfo = $('#userInfo');
+            getTypes();
+            submitForm.click(() =>{
+                const typeSelect = slectBox.find("option:selected").val();
+                const params ={
+                    name: userName.val(),
+                    companyUniversityMechanism:userCompany.val(),
+                    job:userPositon.val(),
+                    email:userEmail.val(),
+                    describe:desc.val(),
+                    type: Number(typeSelect)
+                }
+                $.ajax({ 
+                    url:"/api/consult/save",
+                    dataType: "json",
+                    type: 'post',
+                    data:params,
+                    success: function(res){
+                        if(res.success){
+                            domMask.fadeOut();
+                            domInfo.fadeOut();
+                            alert('已提交');
+                        }else{
+                            alert(res.msg);
+                        }
+                        
+                    }
+                });
+            });
+            function getTypes(){
+                $.ajax({ //新闻
+                    url:"/api/consult/type/list",
+                    dataType: "json",
+                    type: 'get',
+                    success: function(res){
+                       const lists = res.data;
+                       lists.forEach(list =>{
+                            const optionDom = "<option value="+list.code+">"+list.name+"</option> "
+                            slectBox.append(optionDom);
+                       })
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
