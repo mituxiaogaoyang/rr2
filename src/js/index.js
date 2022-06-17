@@ -33,7 +33,17 @@ $('#newsLists').on('mouseenter','.list',function(){
         $('#newsImgs .list').eq(i).addClass('inside');
     }
 });
-
+//consult
+const domInfo = $('#userInfo');
+$('#iconConsult').on('mouseenter',function(){
+    domInfo.animate({right:'1px'})
+})
+$('#xPop').on('click',function(){
+    domInfo.animate({right:'-450px'})
+})
+$('#iconConsult').on('click',function(){
+    domInfo.animate({right:'-450px'})
+})
 //start
 $.ajax({ //新闻
     url:"/api/news/query?page=1&pageSize=6",

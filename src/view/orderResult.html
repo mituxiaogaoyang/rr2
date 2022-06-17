@@ -69,6 +69,13 @@
         display: block;
         margin:80px auto;
       }
+      .contact_box{
+        margin:18px 0;
+        padding:20px 0;
+        background-color: #2370b8;
+        text-align: center;
+        color:#fff;
+      }
       @media screen and (max-width: 768px) {
         .content_core{
           margin:100px auto 25px;
@@ -86,7 +93,11 @@
          <div class="win">
            <img src="./image/win.png" alt="">
            <span class="result_word">支付成功！</span>
+            
          </div>
+         <div class="contact_box">
+          感谢付款，我们将在2个工作日之内以邮件形式将付费文件发送给你！<br/>如需出具发票，请邮件沟通。
+        </div>
          <!-- <div class="win">
            <img src="./image/fail.png" alt="">
            <span class="result_word">支付失败！</span>
@@ -94,7 +105,7 @@
        </div>
        <div class="file_box">
         <div class="title">订单信息</div>
-        <div class="down_btn" id="btnDown">文件下载</div>
+        <!-- <div class="down_btn" id="btnDown">文件下载</div> -->
         <div class="list">
           <div class="label">订单号：</div>
           <div class="val" id="orderCode"></div>
@@ -124,7 +135,7 @@
           <div class="val" id="email"></div>
         </div>
        </div>
-       <a href="./pTable.html" class="back_btn">返回产品页</a>
+       <a href="./pTable.html" class="back_btn">返回元素周期表</a>
     </div>
     
     ##include("../others/footer.html")

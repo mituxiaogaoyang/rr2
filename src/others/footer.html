@@ -65,7 +65,20 @@ types.forEach(item =>{
         }
     });
 })
-
+$.ajax({ //数据库
+    url:"/api/database/introduce/query",
+    dataType: "json",
+    type: 'get',
+    success: function(res){
+        var lists =res.data;
+        const domP2 = $('#database')
+        lists.forEach(list =>{
+            var $link=$('<dd><a href="./databaseDetail.html?id='+list.id+'">'+list.name+'</a></dd>');
+            domP2.append($link);
+            
+        })
+    }
+});
 </script>
     
     

@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>长沙锐睿科技有限公司</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./image/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/public.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/news.css">
+    </head>
+    <body>
+        ##include("../others/header.html")
+        <div class="core_news">
+            <div class="news_detail" id="newsDetail">
+                <div class="title"></div>
+                <div class="time">2020-06-06</div>
+                <div class="detail"></div>
+                
+            </div>
+            <script type="text/x-jsrender" id="tmplNews">
+                <div class="title">{{:name}}</div>
+                <!-- <div class="time">{{:date}}</div> -->
+                <div class="detail">{{:content}}</div>
+            </script>
+        </div>
+        ##include("../others/footer.html")
+        <script src="../js/qs.js"></script>
+        <script>
+            var query = Qs.parse(window.location.search.split("?")[1]);
+            console.log(query);
+            var type = query.type;
+            var id = query.id;
+            var url = '/api/database/introduce/get?id=';
+
+            getDetail(url,id);
+            function getDetail(url,id){
+                $.ajax({//
+                    url: url+ Number(id),
+                    dataType: "json",
+                    type: 'get',
+                    success: function (res) {
+                        res.data.date = res.data.createTime && formatDate(res.data.createTime)
+                        var html = $("#tmplNews").render(res.data);
+                        $("#newsDetail").html(html);
+
+                    }
+                });
+            }
+            function formatDate(now) { 
+                now = new Date(now);
+                var year=now.getFullYear();  //取得4位数的年份
+                var month=now.getMonth()+1;  //取得日期中的月份，其中0表示1月，11表示12月
+                var date=now.getDate();      //返回日期月份中的天数（1到31）
+                // var hour=now.getHours();     //返回日期中的小时数（0到23）
+                // var minute=now.getMinutes(); //返回日期中的分钟数（0到59）
+                // var second=now.getSeconds(); //返回日期中的秒数（0到59）
+                return year+"-"+month+"-"+date+" "; 
+            }
+            
+        </script>
+    </body>
+</html>
