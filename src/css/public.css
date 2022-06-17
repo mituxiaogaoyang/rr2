@@ -87,7 +87,7 @@ img{
     background-color: rgba(255,255,255,.95);
     display: none;
     text-align: center;
-    padding:6px 0;
+    padding:6px 0 18px;
     font-size:13px;
 }
 .header .navs .list .down span{
@@ -134,10 +134,26 @@ img{
 .header .navs .list .down .content dl dd{
     font-size: 13px;
     width:75px;
+    position: relative;
 }
 
+.header .navs .list .down .content dl dd .lists3_box{
+    position: absolute;
+    bottom:-30px;
+    left:75px;
+    width:150px;
+    padding:8px;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 0 3px #999;
+    display: none;
+    box-sizing: border-box;
+    z-index: 6;
+}
+.header .navs .list .down .content dl dd:hover .lists3_box {
+    display: block;
+}
 .header .navs .list .down .content dl dd .lists3_box a{
-    max-width: 116px;
+    max-width: 138px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
