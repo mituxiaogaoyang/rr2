@@ -92,7 +92,6 @@
             const desc = $('#desc');
 
             const domMask = $('#window-mask');
-            const domInfo = $('#userInfo');
             getTypes();
             submitForm.click(() =>{
                 const typeSelect = slectBox.find("option:selected").val();
@@ -112,7 +111,7 @@
                     success: function(res){
                         if(res.success){
                             domMask.fadeOut();
-                            domInfo.fadeOut();
+                            $('#userInfo').fadeOut();
                             alert('已提交');
                         }else{
                             alert(res.msg);

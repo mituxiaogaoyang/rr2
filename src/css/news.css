@@ -1,6 +1,7 @@
 .core_news{
     margin-top:60px;
     min-height: 60vh;
+    padding-bottom: 10px;
 }
 .core_news .list{
     padding:45px 0;
