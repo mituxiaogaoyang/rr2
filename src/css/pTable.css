@@ -260,23 +260,27 @@
     background: -ms-linear-gradient(top left, #7e57c2, #673ab7);
     background: -o-linear-gradient(top left, #7e57c2, #673ab7);
     background: linear-gradient(top left, #7e57c2, #673ab7);
+    background: #2440b3;
 }
+
 .element.alkali {
     background: -webkit-linear-gradient(top left, #ef5350, #f44336);
     background: -moz-linear-gradient(top left, #ef5350, #f44336);
     background: -ms-linear-gradient(top left, #ef5350, #f44336);
     background: -o-linear-gradient(top left, #ef5350, #f44336);
     background: linear-gradient(top left, #ef5350, #f44336);
-    background: rgba(0, 126, 213, .4);
+    background: rgba(0, 126, 213, .6);
 }
+
 .element.alkaline {
     background: -webkit-linear-gradient(top left, #ff7043, #ff5722);
     background: -moz-linear-gradient(top left, #ff7043, #ff5722);
     background: -ms-linear-gradient(top left, #ff7043, #ff5722);
     background: -o-linear-gradient(top left, #ff7043, #ff5722);
     background: linear-gradient(top left, #ff7043, #ff5722);
-    background: #2440b3;
+    background: rgba(112, 128, 192, 0.93);
 }
+
 .element.transition {
     background: -webkit-linear-gradient(top left, #ff9800, #fb8c00);
     background: -moz-linear-gradient(top left, #ff9800, #fb8c00);
@@ -285,20 +289,23 @@
     background: linear-gradient(top left, #ff9800, #fb8c00);
     background: rgba(0, 126, 213, 1);
 }
+
 .element.poor {
-    background: -webkit-linear-gradient(top left, #66bb6a, #4caf50);
-    background: -moz-linear-gradient(top left, #66bb6a, #4caf50);
-    background: -ms-linear-gradient(top left, #66bb6a, #4caf50);
-    background: -o-linear-gradient(top left, #66bb6a, #4caf50);
-    background: linear-gradient(top left, #66bb6a, #4caf50);
+    background: -webkit-linear-gradient(top left, #4e6ef2, #2440b3);
+    background: -moz-linear-gradient(top left, #4e6ef2, #2440b3);
+    background: -ms-linear-gradient(top left, #4e6ef2, #2440b3);
+    background: -o-linear-gradient(top left, #4e6ef2, #2440b3);
+    background: linear-gradient(top left, #4e6ef2, #2440b3);
 }
+
 .element.metalloid {
-    background: -webkit-linear-gradient(top left, #26c6da, #00bcd4);
-    background: -moz-linear-gradient(top left, #26c6da, #00bcd4);
-    background: -ms-linear-gradient(top left, #26c6da, #00bcd4);
-    background: -o-linear-gradient(top left, #26c6da, #00bcd4);
-    background: linear-gradient(top left, #26c6da, #00bcd4);
+    background: -webkit-linear-gradient(top left, #26c6da, #2440b3);
+    background: -moz-linear-gradient(top left, #26c6da, #2440b3);
+    background: -ms-linear-gradient(top left, #26c6da, #2440b3);
+    background: -o-linear-gradient(top left, #26c6da, #2440b3);
+    background: linear-gradient(top left, #26c6da, #2440b3);
 }
+
 .element.nonmetal {
     background: -webkit-linear-gradient(top left, #42a5f5, #2196f3);
     background: -moz-linear-gradient(top left, #42a5f5, #2196f3);
@@ -306,6 +313,7 @@
     background: -o-linear-gradient(top left, #42a5f5, #2196f3);
     background: linear-gradient(top left, #42a5f5, #2196f3);
 }
+
 .element.halogen {
     background: -webkit-linear-gradient(top left, #5c6bc0, #3f51b5);
     background: -moz-linear-gradient(top left, #5c6bc0, #3f51b5);
@@ -313,19 +321,23 @@
     background: -o-linear-gradient(top left, #5c6bc0, #3f51b5);
     background: linear-gradient(top left, #5c6bc0, #3f51b5);
 }
+
 .element.lanthanoid {
     background: -webkit-linear-gradient(top left, #7e57c2, #673ab7);
     background: -moz-linear-gradient(top left, #7e57c2, #673ab7);
     background: -ms-linear-gradient(top left, #7e57c2, #673ab7);
     background: -o-linear-gradient(top left, #7e57c2, #673ab7);
     background: linear-gradient(top left, #7e57c2, #673ab7);
+    background: #4e6ef2;
 }
+
 .element.actinoid {
     background: -webkit-linear-gradient(top left, #ab47bc, #9c27b0);
     background: -moz-linear-gradient(top left, #ab47bc, #9c27b0);
     background: -ms-linear-gradient(top left, #ab47bc, #9c27b0);
     background: -o-linear-gradient(top left, #ab47bc, #9c27b0);
     background: linear-gradient(top left, #ab47bc, #9c27b0);
+    background: #53A1FC;
 }
 .element.selected{
     background: #fff;

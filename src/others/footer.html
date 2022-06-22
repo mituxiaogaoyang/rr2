@@ -73,7 +73,7 @@ $.ajax({ //数据库
         var lists =res.data;
         const domP2 = $('#database')
         lists.forEach(list =>{
-            var $link=$('<dd><a href="./databaseDetail.html?id='+list.id+'">'+list.name+'</a></dd>');
+            var $link=$('<a href="./databaseDetail.html?id='+list.id+'">'+list.name+'</a>');
             domP2.append($link);
             
         })

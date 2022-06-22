@@ -96,8 +96,8 @@ img{
     margin-top:5px;
 }
 .header .navs .list .down2{
-    left:-96px;
-    width:350px;
+    left:-146px;
+    width:420px;
 }
 .header .navs .list .down3 {
     left: -76px;
@@ -130,10 +130,12 @@ img{
     margin-bottom: 3px;
     width: 30px;
     white-space: nowrap;
+    position: relative;
+    left:20px;
 }
 .header .navs .list .down .content dl dd{
     font-size: 13px;
-    width:82px;
+    width:110px;
     position: relative;
 }
 
@@ -141,7 +143,7 @@ img{
     position: absolute;
     bottom:-30px;
     left:75px;
-    width:150px;
+    width:200px;
     padding:8px;
     background: rgba(255,255,255,.8);
     box-shadow: 0 0 3px #999;
@@ -149,11 +151,16 @@ img{
     box-sizing: border-box;
     z-index: 6;
 }
+.header .navs .list .down .content dl dd .lists3_box2 {
+    bottom: auto;
+    top:30px;
+    left: -36px;
+}
 .header .navs .list .down .content dl dd:hover .lists3_box {
     display: block;
 }
 .header .navs .list .down .content dl dd .lists3_box a{
-    max-width: 138px;
+    max-width: 190px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;

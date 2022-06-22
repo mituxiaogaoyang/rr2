@@ -35,6 +35,7 @@ $('#newsLists').on('mouseenter','.list',function(){
 });
 //consult
 const domInfo = $('#userInfo');
+domInfo.animate({right:'1px'})
 $('#iconConsult').on('mouseenter',function(){
     domInfo.animate({right:'1px'})
 })
