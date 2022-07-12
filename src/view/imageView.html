@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>长沙锐睿科技有限公司</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./image/favicon.ico">
+    <style>
+      body,.img_box{
+        min-height: 100vh;
+        margin:0;
+        padding: 0;
+        background: rgba(0,126,213,0.3);
+      }
+      .img_box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .img_box img{
+        max-width: 100%;
+      }
+    </style>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/qs.js"></script>
+    
+  </head>
+  <body>
+    <div class="img_box">
+      <img src="" alt="" id="imgDom">
+    </div>
+    <script>
+      var query = Qs.parse(window.location.search.split("?")[1]);
+      const url = query.url;
+      $('#imgDom').attr("src", url);
+    </script>
+  </body>
+  </html>
