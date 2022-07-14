@@ -40,7 +40,7 @@ function getData(url,ids){
             $('#purchase').html(res.data.purchase);
             if (res.data.type == 5) {
                 
-                $("#introWord").text('产品简介');
+                $(".introWord").text('产品简介');
             }
         }
     });
