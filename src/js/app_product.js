@@ -41,6 +41,8 @@ function getData(url,ids){
             if (res.data.type == 5) {
                 
                 $(".introWord").text('产品简介');
+            }else{
+                $(".introWord").text('软件简介');
             }
         }
     });
