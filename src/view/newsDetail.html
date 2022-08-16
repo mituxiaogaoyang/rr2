@@ -11,7 +11,7 @@
         <div class="core_news">
             <div class="news_detail" id="newsDetail">
                 <div class="title"></div>
-                <div class="time">2020-06-06</div>
+                <div class="time"></div>
                 <div class="detail"></div>
                 
             </div>
@@ -50,9 +50,11 @@
                     getContactSponsor('train');
                 }
             }else if (type == 'tec') {
-            url = '/api/tec/get?id=';
+                url = '/api/tec/get?id=';
+                $('.time').hide();
             }else if (type == 'case') {
-            url = '/api/success/case/get?id=';
+                url = '/api/success/case/get?id=';
+                $('.time').hide();
             }else{
                 url = '/api/news/get?id=';
             }
@@ -75,6 +77,9 @@
                                 
                             })
                             $("#anchorBox").html(aa);
+                        }
+                        if (type == 'tec' || type == 'case') {
+                            $('.time').hide();
                         }
                     }
                 });
