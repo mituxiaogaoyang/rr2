@@ -10,14 +10,14 @@
         padding: 0;
         background: rgba(0,126,213,0.3);
       }
-      .img_box{
+      /* .img_box{
         display: flex;
         justify-content: center;
         align-items: center;
       }
       .img_box img{
         max-width: 100%;
-      }
+      } */
     </style>
     <script src="../js/zepto.js"></script>
     <script src="../js/qs.js"></script>
@@ -25,12 +25,50 @@
   </head>
   <body>
     <div class="img_box">
-      <img src="" alt="" id="imgDom">
+      <img src=""  alt="" id="imgDom">
     </div>
     <script>
       var query = Qs.parse(window.location.search.split("?")[1]);
       const url = query.url;
       $('#imgDom').attr("src", url);
+        class Rotate {
+          constructor() {
+            this.el = null;
+          }
+
+          init(cls) {
+            this.el = document.getElementById(cls)
+            return this
+          }
+
+          RotateWheel() {
+
+            document.onwheel = (e) => {
+            let delta = (e.wheelDelta && (e.wheelDelta > 0 ? 1 : -1))
+
+            if (delta > 0) {//放大
+            // 向上滚
+            let oWidth = this.el.offsetWidth;//取得图片的实际宽度
+            let oHeight = this.el.offsetHeight; //取得图片的实际高度
+
+            this.el.style.width = (oWidth + 50) + "px"
+            this.el.style.height = (oHeight + 50 / oWidth * oHeight) + "px"
+
+            } else if (delta < 0) {//缩小 //向下滚 
+              let oWidth=this.el.offsetWidth; //取得图片的实际宽度 
+              let oHeight=this.el.offsetHeight; //取得图片的实际高度 
+              if (this.el.offsetWidth> 100 || this.el.offsetHeight > 75){//判断如果图片缩小到原图大小就停止缩小(100和75分别为原图的宽高)
+
+                this.el.style.width = oWidth - 50 + "px"
+                this.el.style.height = oHeight - 50 / oWidth * oHeight + "px"
+              }
+              }
+              }
+              }
+
+            }
+
+            new Rotate().init("imgDom").RotateWheel()
     </script>
   </body>
   </html>
