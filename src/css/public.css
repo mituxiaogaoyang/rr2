@@ -6,7 +6,7 @@ html,body{
 dl,dt,dd{
     margin:0
 }
-ul,li{
+ul,li,p{
     margin: 0;
     list-style: none;
     padding:0;

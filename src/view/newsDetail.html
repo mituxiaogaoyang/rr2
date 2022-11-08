@@ -69,7 +69,7 @@
                         var html = $("#tmplNews").render(res.data);
                         $("#newsDetail").html(html);
                         var anchors = res.data.attachmentList;
-                        if(anchors.length){
+                        if(anchors && anchors.length){
                             $("#filesBox").fadeIn();
                             var aa = '';
                             anchors.forEach(list =>{

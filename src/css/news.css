@@ -81,6 +81,9 @@
     width:1000px;
     margin:80px auto 30px;
 }
+.news_detail img{
+    max-width: 100%;
+}
 .news_detail .title{
     font-size: 20px;
     font-weight: 700;

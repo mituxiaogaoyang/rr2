@@ -61,6 +61,9 @@
 .core_inRuirui .right li {
     margin:0!important;
 }
+.core_inRuirui .right img{
+    max-width: 100%;
+}
 .meeting_lists{
     padding:2px;
 
